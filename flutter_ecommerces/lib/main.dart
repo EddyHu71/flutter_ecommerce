@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: "Flutter E-Commerce",
       debugShowCheckedModeBanner: false,
       theme : ThemeData(
-        textTheme: GoogleFonts.lateefTextTheme(),
+        textTheme: GoogleFonts.heeboTextTheme(),
         primarySwatch: Colors.blue,
         ),
         getPages: Routers().routers,
