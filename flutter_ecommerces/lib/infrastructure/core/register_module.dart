@@ -1,76 +1,54 @@
-import 'dart:io';
+import 'package:code_id_flutter/code_id_flutter.dart';
+import 'package:code_id_flutter/code_packages/alice/alice.dart';
 
-import 'package:connectivity/connectivity.dart';
-import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_ecommerces/domain/core/i_storage.dart';
-
-import 'package:flutter_ecommerces/infrastructure/core/link_connect.dart';
-import 'package:flutter_ecommerces/infrastructure/core/logger_interceptor.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
+// import 'package:hive_flutter/hive_flutter.dart';
 
 @module
 abstract class RegisterModule {
-  // @Environment('prod')
   @Named('baseUrl')
-  String get baseUrl => Urls.baseUrl;
+  String get baseUrl => 'https://jsonplaceholder.typicode.com';
 
-  @lazySingleton
-  Connectivity get connectivity => Connectivity();
-
-  @lazySingleton
-  HiveInterface get hive => Hive;
+  // @lazySingleton
+  // HiveInterface get hive => Hive;
 
   @lazySingleton
   Logger get logger => Logger();
 
-  // @lazySingleton
-  // Fresh get fresh => Fresh<AuthToken>(
-  //       tokenHeader: (token) {
-  //         return {'Authorization': '${token.tokenType} ${token.accessToken}'};
-  //       },
-  //       tokenStorage: InMemoryTokenStorage<AuthToken>(),
-  //       refreshToken: (token, client) async {
-  //         throw RevokeTokenException();
-  //       },
-  //     );
-
-  // @preResolve
   @lazySingleton
-  Dio dio(
+  IStorage get storage => Storage;
+
+  @lazySingleton
+  Alice get alice => Alice(
+        navigatorKey: GlobalKey<NavigatorState>(),
+      );
+
+  @preResolve
+  @lazySingleton
+  Future<INetworkService> network(
     @Named('baseUrl') String baseUrl,
     IStorage _storage,
-    // Fresh _fresh,
-  ) {
-    final Dio _dio = Dio();
-    final BaseOptions _options = BaseOptions(
-      connectTimeout: 120000,
-      receiveTimeout: 60000,
-      sendTimeout: 60000,
-      baseUrl: baseUrl,
-    );
-    (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate =
-        (HttpClient client) {
-      client.badCertificateCallback =
-          (X509Certificate cert, String host, int port) {
-        return baseUrl.contains(host);
-      };
-      return client;
-    };
-
-    // await _storage.openBox(StorageConstants.security);
-    // _dio.interceptors.add(AuthInterceptor(_storage, 'sessionId'));
-
-    // _dio.interceptors.add(_fresh);
-    _dio.interceptors.add(
-      LoggerInterceptor(
-        requestHeader: true,
+    Alice alice,
+  ) async {
+    await _storage.openBox('authKey');
+    IList<Interceptor> interceptors = [
+      AuthInterceptor(
+        storage: _storage,
+        authKey: 'sessionId',
       ),
-    );
-    // _storage.close();
-    _dio.options = _options;
-    return _dio;
+      LoggerInterceptor(
+          requestBody: true,
+          request: true,
+          requestHeader: true,
+          responseBody: true,
+          responseHeader: true),
+      alice.getDioInterceptor(),
+    ].lock;
+
+    return NetworkService(baseUrl: baseUrl, interceptors: interceptors);
   }
 }

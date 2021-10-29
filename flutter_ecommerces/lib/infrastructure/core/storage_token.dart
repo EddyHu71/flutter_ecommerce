@@ -32,7 +32,7 @@ class StorageToken {
 
   deleteToken() async {
     print("Delete Token");
-    await _storage.delete(key : "token");
+    await _storage.delete(key: "token");
     final token = await _storage.read(key: "token");
     if (token == null) {
       return true;

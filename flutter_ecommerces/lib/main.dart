@@ -22,12 +22,12 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: "Flutter E-Commerce",
       debugShowCheckedModeBanner: false,
-      theme : ThemeData(
+      theme: ThemeData(
         textTheme: GoogleFonts.heeboTextTheme(),
         primarySwatch: Colors.blue,
-        ),
-        getPages: Routers().routers,
-        initialRoute: Routers.splashScreen,
+      ),
+      getPages: Routers().routers,
+      initialRoute: Routers.splashScreen,
     );
   }
 }
