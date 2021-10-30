@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 class Buttons extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
+  final bool? requiredIcon;
   Buttons({
     required this.onPressed,
     required this.text,
+    this.requiredIcon,
   });
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class Buttons extends StatelessWidget {
               const Expanded(
                 child: SizedBox(),
               ),
-              Icon(Icons.login, size: 28, color: Colours.componentColor),
+              requiredIcon == true ? Icon(Icons.login, size: 28, color: Colours.componentColor) : Container(),
               SizedBox(width: 8),
               Text(text.toUpperCase(),
                   maxLines: 1,

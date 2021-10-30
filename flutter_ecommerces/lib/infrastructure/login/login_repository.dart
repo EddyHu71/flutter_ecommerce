@@ -1,4 +1,3 @@
-import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter_ecommerces/domain/core/i_network_service.dart';
 import 'package:flutter_ecommerces/domain/login/i_login_repository.dart';
 import 'package:flutter_ecommerces/infrastructure/core/link_connect.dart';
@@ -7,7 +6,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:flutter_ecommerces/domain/login/login_failure.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as : ILoginRepository)
+@LazySingleton(as: ILoginRepository)
 class LoginRepository implements ILoginRepository {
   final INetworkService iNetworkService;
   LoginRepository(this.iNetworkService);

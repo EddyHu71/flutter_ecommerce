@@ -5,13 +5,5 @@ class Urls {
 }
 
 class UrlPath {
-  static const String login = 'api/login';
-  static const String register = "api/register";
-  static const String getData = "api/unknown";
-  static const String getProfileData = "api/users";
-  static const String updateProfile = "";
-  // static const String getToken = '/auth/otp';
-  // static const String getTokenEmail = '/auth/otp-email';
-  // static const String validateToken = '/auth/validate-otp';
-  // static const String register = '/auth/register';
+  static const String login = '/auth/login';
 }
