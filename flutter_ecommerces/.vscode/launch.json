@@ -18,10 +18,9 @@
     // ]
     "configurations": [
         {
-          "name": "Flutter",
+          "name": "Dart & Flutter",
           "request": "launch",
-          "type": "dart",
-          "flutterMode": "debug"
+          "type": "dart"
         }
     ]
 }

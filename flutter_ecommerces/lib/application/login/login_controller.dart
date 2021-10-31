@@ -1,13 +1,17 @@
+import 'package:flutter_ecommerces/domain/core/i_storage.dart';
 import 'package:flutter_ecommerces/domain/login/i_login_repository.dart';
 import 'package:flutter_ecommerces/domain/login/login_objects.dart';
+import 'package:flutter_ecommerces/infrastructure/core/storage.dart';
 import 'package:flutter_ecommerces/presentation/routers/routers.dart';
 import 'package:get/get.dart';
+import 'package:flutter_ecommerces/infrastructure/core/storage.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
 class LoginController extends GetxController {
   final ILoginRepository iLoginRepository;
-  LoginController(this.iLoginRepository);
+  final IStorage iStorage;
+  LoginController(this.iLoginRepository, this.iStorage);
 
   Rx<Username> username = Username('').obs;
   Rx<Password> password = Password('').obs;
@@ -18,7 +22,7 @@ class LoginController extends GetxController {
   Username get getUsername => username.value;
   Password get getPassword => password.value;
 
-  void onUsernaemChanged(String input) {
+  void onUsernameChanged(String input) {
     username.value = Username(input);
     isValidated();
   }
@@ -37,7 +41,6 @@ class LoginController extends GetxController {
     print("onLogin");
     var res = await iLoginRepository.login(username.value.getOrCrash(), password.value.getOrCrash() );
     isLoading.value = false;
-
     res.match(
       (l) {
       print("Left");
@@ -50,6 +53,13 @@ class LoginController extends GetxController {
       );
     }, (r) {
       print("Right");
+      // Get.defaultDialog(
+      //   title: 'Login success',
+      //   middleText: 'Login success',
+      //   onConfirm: () async {
+      //     Get.back();
+      //   },
+      // );
       Get.offNamedUntil(Routers.home, (route) => false);
     });
   }

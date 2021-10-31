@@ -39,10 +39,10 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       get<String>(instanceName: 'baseUrl'), get<_i5.IStorage>()));
   gh.lazySingleton<_i10.INetworkService>(() => _i11.NetworkService(
       get<_i9.Dio>(), get<_i5.IStorage>(), get<_i3.Connectivity>()));
-  gh.lazySingleton<_i12.ILoginRepository>(
-      () => _i13.LoginRepository(get<_i10.INetworkService>()));
-  gh.factory<_i14.LoginController>(
-      () => _i14.LoginController(get<_i12.ILoginRepository>()));
+  gh.lazySingleton<_i12.ILoginRepository>(() =>
+      _i13.LoginRepository(get<_i10.INetworkService>(), get<_i5.IStorage>()));
+  gh.factory<_i14.LoginController>(() =>
+      _i14.LoginController(get<_i12.ILoginRepository>(), get<_i5.IStorage>()));
   return get;
 }
 

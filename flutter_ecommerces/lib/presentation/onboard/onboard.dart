@@ -34,7 +34,7 @@ class OnBoard extends StatelessWidget {
             children: [
               Padding(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Buttons(
                   text: "Login",
                   onPressed: () {
