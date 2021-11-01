@@ -4,8 +4,9 @@ class AppBars {
   static AppBar appBars({
     required String title
   }) => AppBar(
-    title: Text(title),
+    elevation : 0,
+    title: Text(title, style : TextStyle(color : Colors.black)),
     centerTitle: true,
-    backgroundColor: Colors.transparent,
+    backgroundColor: Colors.white,
   );
 }

@@ -79,7 +79,7 @@ class RegisterPage extends StatelessWidget {
                   TextFormField(
                     initialValue: "m38rmF",
                     keyboardType: TextInputType.text,
-                    obscureText: true,
+                    // obscureText: true,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: InputDecoration(
                         fillColor: Colors.grey.withOpacity(0.4),
@@ -98,7 +98,7 @@ class RegisterPage extends StatelessWidget {
                   TextFormField(
                     initialValue: "m38rmF",
                     keyboardType: TextInputType.text,
-                    obscureText: true,
+                    // obscureText: true,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: InputDecoration(
                         fillColor: Colors.grey.withOpacity(0.4),

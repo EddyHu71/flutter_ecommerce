@@ -9,7 +9,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 void main() async {
-  
   await Hive.initFlutter();
   await dotenv.load(fileName: '.env');
   configureInjection(Environment.dev);

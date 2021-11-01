@@ -6,5 +6,5 @@ class Urls {
 
 class UrlPath {
   static const String login = '/auth/login';
-  static const String register = "/users";
+  static const String register = '/users';
 }

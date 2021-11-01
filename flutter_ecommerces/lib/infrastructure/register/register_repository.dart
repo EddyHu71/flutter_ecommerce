@@ -20,6 +20,8 @@ class RegisterRepository implements IRegisterRepository {
     // TODO: implement register
     try {
       List<String> names = name.split(" ");
+      print(names[0]);
+      print(names[1]);
       final Map<String, dynamic> req = {
         "username" : username,
         "email" : email,
