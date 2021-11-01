@@ -15,20 +15,23 @@ class AuthRepository implements IAuthRepository {
     // TODO: implement authToken
     try {
       // var tokens = iStorage.getString(key: "token");
-      final tokens = await storageData.returnToken();
+      var tokens = await storageData.returnToken();
       print("Token in iStorage");
-      print(tokens.toString());
+      print(tokens);
+      print("Panjang token ${tokens.length}");
       // print("Token from parameter");
       // print(token);
       await Future.delayed(const Duration(seconds: 3));
-      if (token == tokens) {
-        print("Auth success");
-        return right(unit);
-      }
-      if (tokens == null) {
-        // print("Token null");
+      if (tokens == null || token == null) {
+        print("Token null");
         // iStorage.deleteString(key: "token");
+        storageData.deleteAll();
         return left(AuthFailure.invalidToken());
+      } else {
+        if (token == tokens && tokens != null) {
+          print("Auth success");
+          return right(unit);
+        }
       }
       print("Auth failed");
       return left(AuthFailure.failed());

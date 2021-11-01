@@ -33,7 +33,7 @@ class AuthController extends GetxController {
     print("Auth Token");
     print(token.value.getOrCrash());
     final tokens = await storageData.returnToken();
-    print("Returns");
+    print("Returns authToken");
     print(tokens);
     var res = await iAuthRepository.authToken(tokens);
     print(res);

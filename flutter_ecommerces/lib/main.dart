@@ -9,9 +9,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:injectable/injectable.dart';
 
 void main() async {
-  configureInjection(Environment.dev);
+  
   await Hive.initFlutter();
   await dotenv.load(fileName: '.env');
+  configureInjection(Environment.dev);
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());

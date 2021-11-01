@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerces/application/login/login_controller.dart';
 import 'package:flutter_ecommerces/injection.dart';
+import 'package:flutter_ecommerces/presentation/core/appbars.dart';
 import 'package:flutter_ecommerces/presentation/core/buttons.dart';
 import 'package:flutter_ecommerces/presentation/core/utils.dart';
 import 'package:get/get.dart';
@@ -13,6 +14,7 @@ class LoginPage extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      appBar: AppBars.appBars(title: "Masuk"),
       body: SafeArea(
         child: Form(
           autovalidateMode: AutovalidateMode.onUserInteraction,

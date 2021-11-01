@@ -39,7 +39,8 @@ class OnBoard extends StatelessWidget {
                 child: Buttons(
                   text: "Login",
                   onPressed: () {
-                    Get.offNamedUntil(Routers.login, (route) => false);
+                   // Get.toNamed(Routers.login);
+                   Get.offNamedUntil(Routers.login, (route) => false);
                   },
                 ),
               ),
@@ -47,7 +48,10 @@ class OnBoard extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Buttons(
                   text: "Register",
-                  onPressed: () {},
+                  onPressed: () {
+                    // Get.toNamed(Routers.register);
+                    Get.offNamedUntil(Routers.register, (route) => false);
+                  },
                 ),
               ),
             ],

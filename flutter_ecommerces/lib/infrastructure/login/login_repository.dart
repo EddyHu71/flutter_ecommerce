@@ -29,11 +29,11 @@ class LoginRepository implements ILoginRepository {
         print("Login success");
         Map<String, dynamic> json = response as Map<String, dynamic>;
         // storageData.writeToken(json['token']);
-        // String token = json['token'];
-        // iStorage.putString(key: "token", value: token);
+        String token = json['token'];
+        iStorage.putString(key: "token", value: token);
         // final tokens = iStorage.getString(key: "token");
-        // print("Panjang token");
-        // print(tokens.toString().length);
+        print("Panjang token");
+        print(token.toString().length);
         return right(LoginModel.fromJson(response));
       }
       return left(LoginFailure.invalidLogin());
