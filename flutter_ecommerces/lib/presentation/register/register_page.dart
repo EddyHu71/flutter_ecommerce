@@ -20,26 +20,27 @@ class RegisterPage extends StatelessWidget {
         child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                  // TextFormField(
-                  //   keyboardType: TextInputType.text,
-                  //   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  //   decoration: InputDecoration(
-                  //       fillColor: Colors.grey.withOpacity(0.4),
-                  //       hintText: "Username",
-                  //       border: InputBorder.none,
-                  //       prefixIcon: Icon(Icons.person)),
-                  //       onChanged: (value) =>
-                  //           registerController.onUsernameChanged(value),
-                  //       validator: (_) => registerController.getUsername.value.fold(
-                  //           (l) => l.maybeMap(
-                  //               empty: (_) => "Username Anda kosong",
-                  //               invalidUsername: (_) => "Username Anda tidak valid",
-                  //               orElse: () => null),
-                  //           (r) => null),
-                  //   ),
                   Expanded(
                     flex : 3,
                     child : SizedBox()),
+                  TextFormField(
+                    initialValue: "johnd",
+                    keyboardType: TextInputType.text,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: InputDecoration(
+                      fillColor: Colors.grey.withOpacity(0.4),
+                      hintText: "Username",
+                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.person)),
+                      onChanged: (value) =>
+                          registerController.onUsernameChanged(value),
+                      validator: (_) => registerController.getUsername.value.fold(
+                          (l) => l.maybeMap(
+                              empty: (_) => "Username Anda kosong",
+                              invalidUsername : (_) => "Username Anda tidak valid",
+                              orElse: () => null),
+                          (r) => null),
+                  ),
                   TextFormField(
                     keyboardType: TextInputType.text,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -54,7 +55,7 @@ class RegisterPage extends StatelessWidget {
                         validator: (_) => registerController.getName.value.fold(
                             (l) => l.maybeMap(
                                 empty: (_) => "Nama Anda kosong",
-                                invalidName: (_) => "Nama Anda tidak valid",
+                                invalidName : (_) => "Nama Anda tidak valid",
                                 orElse: () => null),
                             (r) => null),
                   ),
@@ -69,7 +70,7 @@ class RegisterPage extends StatelessWidget {
                         prefixIcon: Icon(Icons.mail)),
                         onChanged: (value) =>
                             registerController.onEmailChanged(value),
-                        validator: (_) => registerController.getName.value.fold(
+                        validator: (_) => registerController.getEmail.value.fold(
                             (l) => l.maybeMap(
                                 empty: (_) => "Email Anda kosong",
                                 invalidEmail: (_) => "Email Anda tidak valid",
@@ -95,25 +96,25 @@ class RegisterPage extends StatelessWidget {
                             orElse: () => null),
                         (r) => null),
                   ),
-                  TextFormField(
-                    initialValue: "m38rmF",
-                    keyboardType: TextInputType.text,
-                    // obscureText: true,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    decoration: InputDecoration(
-                        fillColor: Colors.grey.withOpacity(0.4),
-                        hintText: "Konfirmasi Password",
-                        border: InputBorder.none,
-                        prefixIcon: Icon(Icons.lock)),
-                    onChanged: (value) =>
-                        registerController.onConfirmPasswordChanged(value),
-                    validator: (_) => registerController.getConfirmPassword.value.fold(
-                        (l) => l.maybeMap(
-                            empty: (_) => "Konfirmasi Password Anda kosong",
-                            invalidConfirmPassword: (_) => "Konfirmasi Password tidak valid",
-                            orElse: () => null),
-                        (r) => null),
-                  ),
+                  // TextFormField(
+                  //   initialValue: "m38rmF",
+                  //   keyboardType: TextInputType.text,
+                  //   // obscureText: true,
+                  //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                  //   decoration: InputDecoration(
+                  //       fillColor: Colors.grey.withOpacity(0.4),
+                  //       hintText: "Konfirmasi Password",
+                  //       border: InputBorder.none,
+                  //       prefixIcon: Icon(Icons.lock)),
+                  //   onChanged: (value) =>
+                  //       registerController.onConfirmPasswordChanged(value),
+                  //   validator: (_) => registerController.getConfirmPassword.value.fold(
+                  //       (l) => l.maybeMap(
+                  //           empty: (_) => "Konfirmasi Password Anda kosong",
+                  //           invalidConfirmPassword: (_) => "Konfirmasi Password tidak valid",
+                  //           orElse: () => null),
+                  //       (r) => null),
+                  // ),
                 Expanded(flex: 1, child: SizedBox()),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
@@ -121,10 +122,14 @@ class RegisterPage extends StatelessWidget {
                     requiredIcon: false,
                     text: "Register",
                     onPressed: () {
-                      if (registerController.isValid.value == true) {
-                        print("Register executed");
-                        registerController.onRegister();
-                      }
+                      print("Register executed");
+                      registerController.onRegister();
+                      print("Valid value");
+                      print(registerController.isValid.value);
+                      // if (registerController.isValid.value == true) {
+                      //   print("Register executed");
+                      //   registerController.onRegister();
+                      // }
                     },
                   ),
                 ),

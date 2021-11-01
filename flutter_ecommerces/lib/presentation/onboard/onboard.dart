@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerces/presentation/core/buttons.dart';
 import 'package:flutter_ecommerces/presentation/core/utils.dart';
+import 'package:flutter_ecommerces/presentation/login/login_page.dart';
+import 'package:flutter_ecommerces/presentation/register/register_page.dart';
 import 'package:flutter_ecommerces/presentation/routers/routers.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
@@ -39,8 +41,9 @@ class OnBoard extends StatelessWidget {
                 child: Buttons(
                   text: "Login",
                   onPressed: () {
+                    Get.to(LoginPage());
                    // Get.toNamed(Routers.login);
-                   Get.offNamedUntil(Routers.login, (route) => false);
+                   // Get.offNamedUntil(Routers.login, (route) => false);
                   },
                 ),
               ),
@@ -49,8 +52,9 @@ class OnBoard extends StatelessWidget {
                 child: Buttons(
                   text: "Register",
                   onPressed: () {
+                    Get.to(RegisterPage());
                     // Get.toNamed(Routers.register);
-                    Get.offNamedUntil(Routers.register, (route) => false);
+                    // Get.offNamedUntil(Routers.register, (route) => false);
                   },
                 ),
               ),
