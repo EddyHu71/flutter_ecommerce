@@ -1,3 +1,4 @@
+import 'package:flutter_ecommerces/application/auth/auth_controller.dart';
 import 'package:flutter_ecommerces/domain/core/i_storage.dart';
 import 'package:flutter_ecommerces/domain/login/i_login_repository.dart';
 import 'package:flutter_ecommerces/domain/login/login_objects.dart';
@@ -54,15 +55,7 @@ class LoginController extends GetxController {
       );
     }, (r) {
       print("Right");
-      // Get.defaultDialog(
-      //   title: 'Login success',
-      //   middleText: 'Login success',
-      //   onConfirm: () async {
-      //     Get.back();
-      //   },
-      // );
-      // storageData.writeToken(r.token);
-      
+      storageData.writeToken(r.token);
       Get.offNamedUntil(Routers.home, (route) => false);
     });
   }

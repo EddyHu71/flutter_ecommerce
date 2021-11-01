@@ -11,6 +11,7 @@ class OnBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      resizeToAvoidBottomInset: false,
         body: SafeArea(
             child: Padding(
       padding: const EdgeInsets.all(16.0),

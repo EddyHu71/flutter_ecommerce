@@ -9,6 +9,12 @@ class StorageToken {
     await _storage.write(key: "token", value: token);
   }
 
+  returnToken() async {
+    print("Return token");
+    final token = await _storage.read(key: "token");
+    print(token);
+    return token.toString();
+  }
   readToken() async {
     print("Token");
     final token = await _storage.read(key: "token");

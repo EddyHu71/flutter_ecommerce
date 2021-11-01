@@ -6,6 +6,11 @@ class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(body: Center(child: Text("Home")));
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home"),
+        centerTitle: true,
+        ),
+      body: Center(child: Text("Home")));
   }
 }
