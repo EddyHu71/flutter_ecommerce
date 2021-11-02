@@ -10,8 +10,8 @@ class Alerts {
       bool withCancel = false,
       String? title,
       String? subTitle,
-      String yesText = "Yes",
-      String noText = "No"}) async {
+      String yesText = "Ya",
+      String noText = "Tidak"}) async {
     List<Widget> buttons = [];
     if (withCancel) {
       buttons.add(TextButton(
