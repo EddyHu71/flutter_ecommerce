@@ -17,8 +17,9 @@ class ProfileController extends GetxController {
     isLoading.value = true;
     print("Fetch User executed");
     var res = await iProfileRepository.getProfile(id);
-    // optionFailOrSuccess = optionOf(res);
-    
+    optionFailOrSuccess.value = optionOf(res);
+    print("Option Fail or Success");
+    print(optionFailOrSuccess.value);
     isLoading.value = false;
     print("is Loading value");
     print(isLoading.value);
