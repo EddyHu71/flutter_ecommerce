@@ -39,10 +39,10 @@ class LoginController extends GetxController {
   Future<void> onLogin() async {
     isLoading.value = true;
     print("onLogin");
-    var res = await iLoginRepository.login(username.value.getOrCrash(), password.value.getOrCrash() );
+    var res = await iLoginRepository.login(
+        username.value.getOrCrash(), password.value.getOrCrash());
     isLoading.value = false;
-    res.match(
-      (l) {
+    res.match((l) {
       print("Left");
       Get.defaultDialog(
         title: 'Login Failed',

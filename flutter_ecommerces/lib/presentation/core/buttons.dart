@@ -26,7 +26,9 @@ class Buttons extends StatelessWidget {
               const Expanded(
                 child: SizedBox(),
               ),
-              requiredIcon == true ? Icon(Icons.login, size: 28, color: Colours.componentColor) : Container(),
+              requiredIcon == true
+                  ? Icon(Icons.login, size: 28, color: Colours.componentColor)
+                  : Container(),
               SizedBox(width: 8),
               Text(text.toUpperCase(),
                   maxLines: 1,

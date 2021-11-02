@@ -16,6 +16,7 @@ class Username extends ValueObject<String> {
 
   const Username._(this.value);
 }
+
 class Name extends ValueObject<String> {
   @override
   // TODO: implement value
@@ -50,9 +51,7 @@ class Password extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory Password(String input) {
-    return Password._(
-      validatePassword(input)
-    );
+    return Password._(validatePassword(input));
   }
 
   const Password._(this.value);
@@ -66,7 +65,7 @@ class Password extends ValueObject<String> {
 //   factory ConfirmPassword(String firstPassword, String secondPassword) {
 //     return ConfirmPassword._(
 //       confirmMatchPassword(
-//         firstPassword: firstPassword, 
+//         firstPassword: firstPassword,
 //         secondPassword: secondPassword,
 //          lengthPassword: 4),
 //     );

@@ -25,10 +25,10 @@ class RegisterController extends GetxController {
   // ConfirmPassword get getConfirmPassword => confirmPassword.value;
 
   void isValidated() {
-    isValid.value = name.value.isValid() 
-    && username.value.isValid() 
-    && email.value.isValid() 
-    && password.value.isValid();
+    isValid.value = name.value.isValid() &&
+        username.value.isValid() &&
+        email.value.isValid() &&
+        password.value.isValid();
     print("Validated register ${isValid.value}");
   }
 
@@ -65,22 +65,21 @@ class RegisterController extends GetxController {
     isLoading.value = true;
     print("on Register");
     var res = await iRegisterRepository.register(
-      email.value.getOrCrash(), 
-      username.value.getOrCrash(),
-      name.value.getOrCrash(), 
-      password.value.getOrCrash());
+        email.value.getOrCrash(),
+        username.value.getOrCrash(),
+        name.value.getOrCrash(),
+        password.value.getOrCrash());
     isLoading.value = false;
     print("Register");
     print(res);
     res.match((l) {
       print("Left");
       Get.defaultDialog(
-        title: "Register Failed",
-        middleText: "Register Failed",
-        onConfirm: () async {
-          Get.back();
-        }
-      );
+          title: "Register Failed",
+          middleText: "Register Failed",
+          onConfirm: () async {
+            Get.back();
+          });
     }, (r) {
       print("Right");
       Get.offNamedUntil(Routers.home, (route) => false);

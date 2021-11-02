@@ -17,18 +17,17 @@ class HomePage extends HookWidget {
       appBar: AppBar(
         title: Text("Home"),
         centerTitle: true,
-        ),
+      ),
       body: _pages[_selectedIndex.value],
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (int index) {
-          _selectedIndex.value = index;
-        },
-        currentIndex: _selectedIndex.value,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home" ),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile" ),
-        ]
-      ),
-      );
+          onTap: (int index) {
+            _selectedIndex.value = index;
+          },
+          currentIndex: _selectedIndex.value,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          ]),
+    );
   }
 }

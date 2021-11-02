@@ -5,8 +5,7 @@ import 'package:flutter_ecommerces/infrastructure/core/storage_token.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as : IAuthRepository)
-
+@LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
   final IStorage iStorage;
   AuthRepository(this.iStorage);
@@ -40,5 +39,4 @@ class AuthRepository implements IAuthRepository {
       return left(AuthFailure.failed());
     }
   }
-
 }

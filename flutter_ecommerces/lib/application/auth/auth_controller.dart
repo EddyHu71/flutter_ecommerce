@@ -1,4 +1,3 @@
-
 import 'package:flutter_ecommerces/domain/auth/auth_objects.dart';
 import 'package:flutter_ecommerces/domain/auth/i_auth_repository.dart';
 import 'package:flutter_ecommerces/domain/core/i_storage.dart';
@@ -39,8 +38,7 @@ class AuthController extends GetxController {
     print(res);
     isLoading.value = false;
 
-    res.match(
-      (l) {
+    res.match((l) {
       print("Left");
       Get.offNamedUntil(Routers.onboard, (route) => false);
     }, (r) {

@@ -52,15 +52,15 @@ Either<ValueFailure<String>, String> validateUsername(String input) {
 }
 
 Either<ValueFailure<String>, String> confirmMatchPassword({
-  required String firstPassword, 
+  required String firstPassword,
   required String secondPassword,
   required int lengthPassword,
 }) {
-
   if (secondPassword != null && firstPassword != secondPassword) {
     return left(ValueFailure.confirmationNotMatch(failedValue: secondPassword));
   } else if (secondPassword.length != lengthPassword) {
-    return left(ValueFailure.lengthTooShort(failedValue: secondPassword, min: lengthPassword));
+    return left(ValueFailure.lengthTooShort(
+        failedValue: secondPassword, min: lengthPassword));
   }
   return right(secondPassword);
 }

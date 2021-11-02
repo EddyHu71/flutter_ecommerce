@@ -5,34 +5,27 @@ import 'package:flutter_ecommerces/infrastructure/core/link_connect.dart';
 import 'package:injectable/injectable.dart';
 import 'package:fpdart/fpdart.dart';
 
-
-@LazySingleton(as : IRegisterRepository)
-
+@LazySingleton(as: IRegisterRepository)
 class RegisterRepository implements IRegisterRepository {
   final INetworkService iNetworkService;
   RegisterRepository(this.iNetworkService);
   @override
   Future<Either<RegisterFailure, Unit>> register(
-    String email, 
-    String username, 
-    String name, 
-    String password) async {
+      String email, String username, String name, String password) async {
     // TODO: implement register
     try {
       List<String> names = name.split(" ");
       print(names[0]);
       print(names[1]);
       final Map<String, dynamic> req = {
-        "username" : username,
-        "email" : email,
-        "password" : password,
-        "name" : {
-          "firstname" : names[0],
-          "lastname" : names[1]
-        }
+        "username": username,
+        "email": email,
+        "password": password,
+        "name": {"firstname": names[0], "lastname": names[1]}
       };
-      var res = await iNetworkService.postHttp(path: UrlPath.register, content : req);
-      await Future.delayed(const Duration(seconds : 1));
+      var res =
+          await iNetworkService.postHttp(path: UrlPath.register, content: req);
+      await Future.delayed(const Duration(seconds: 1));
       if (res != null) {
         print("Register success");
         return right(unit);
@@ -43,5 +36,4 @@ class RegisterRepository implements IRegisterRepository {
       return left(RegisterFailure.failed());
     }
   }
-
 }

@@ -1,4 +1,3 @@
-
 import 'package:flutter_ecommerces/domain/register/register_failure.dart';
 import 'package:fpdart/fpdart.dart';
 

@@ -15,6 +15,7 @@ class StorageToken {
     print(token);
     return token.toString();
   }
+
   readToken() async {
     print("Token");
     final token = await _storage.read(key: "token");

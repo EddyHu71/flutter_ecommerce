@@ -13,55 +13,56 @@ class OnBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
             child: Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Expanded(flex: 6, child: SizedBox()),
-          Image.asset(Utils.LOGO, fit: BoxFit.fitWidth, width: 225),
-          Container(
-              child: Column(mainAxisSize: MainAxisSize.min, children: [
-            Text("Welcome to Flutter E-Commerce",
-                textAlign: TextAlign.center,
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
-            Text("We provide anything that you want.",
-                style: TextStyle(fontSize: 16))
-          ])),
-          Expanded(flex: 4, child: SizedBox()),
-          Container(
-              child: Column(
-            mainAxisSize: MainAxisSize.min,
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                child: Buttons(
-                  text: "Login",
-                  onPressed: () {
-                    Get.to(LoginPage());
-                   // Get.toNamed(Routers.login);
-                   // Get.offNamedUntil(Routers.login, (route) => false);
-                  },
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Buttons(
-                  text: "Register",
-                  onPressed: () {
-                    Get.to(RegisterPage());
-                    // Get.toNamed(Routers.register);
-                    // Get.offNamedUntil(Routers.register, (route) => false);
-                  },
-                ),
-              ),
+              Expanded(flex: 6, child: SizedBox()),
+              Image.asset(Utils.LOGO, fit: BoxFit.fitWidth, width: 225),
+              Container(
+                  child: Column(mainAxisSize: MainAxisSize.min, children: [
+                Text("Welcome to Flutter E-Commerce",
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24)),
+                Text("We provide anything that you want.",
+                    style: TextStyle(fontSize: 16))
+              ])),
+              Expanded(flex: 4, child: SizedBox()),
+              Container(
+                  child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    child: Buttons(
+                      text: "Login",
+                      onPressed: () {
+                        Get.to(LoginPage());
+                        // Get.toNamed(Routers.login);
+                        // Get.offNamedUntil(Routers.login, (route) => false);
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Buttons(
+                      text: "Register",
+                      onPressed: () {
+                        Get.to(RegisterPage());
+                        // Get.toNamed(Routers.register);
+                        // Get.offNamedUntil(Routers.register, (route) => false);
+                      },
+                    ),
+                  ),
+                ],
+              ))
             ],
-          ))
-        ],
-      ),
-    )));
+          ),
+        )));
   }
 }

@@ -8,44 +8,54 @@ class DetailProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(onPressed: () {
-            Get.to(UpdateProfile());
-          }, icon: Icon(Icons.edit))
-        ],
-      ),
-      body : Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Center(
-              child: Container(
-                width : 225,
-                height : 225,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colours.shimmerColor,
+        appBar: AppBar(
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Get.to(UpdateProfile());
+                },
+                icon: Icon(Icons.edit))
+          ],
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Center(
+                child: Container(
+                  width: 225,
+                  height: 225,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colours.shimmerColor,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top : 8.0, bottom : 8.0,),
-              child: Text("Nama", style : TextStyle(fontWeight: FontWeight.bold, fontSize : 24.0)),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom : 8.0,),
-              child: Text("Username", style : TextStyle(fontWeight: FontWeight.bold, fontSize : 16.0)),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom : 8.0),
-              child: Text("Email", style : TextStyle(fontSize : 14.0)),
-            ),
-        ],),
-      )
-    );
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: 8.0,
+                  bottom: 8.0,
+                ),
+                child: Text("Nama",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  bottom: 8.0,
+                ),
+                child: Text("Username",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Text("Email", style: TextStyle(fontSize: 14.0)),
+              ),
+            ],
+          ),
+        ));
   }
-
 }

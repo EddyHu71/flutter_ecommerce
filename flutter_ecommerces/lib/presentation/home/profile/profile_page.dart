@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerces/application/profile/profile_controller.dart';
+import 'package:flutter_ecommerces/application/profile/profile_controller.dart';
+import 'package:flutter_ecommerces/injection.dart';
 import 'package:flutter_ecommerces/presentation/core/alerts.dart';
 import 'package:flutter_ecommerces/presentation/core/colours.dart';
 import 'package:flutter_ecommerces/presentation/home/profile/detail_profile.dart';
@@ -9,28 +12,41 @@ class ProfilePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return SafeArea(child: Padding(
+    final ProfileController profileController = Get.put(getIt<ProfileController>());
+    useEffect(() {
+      profileController.fetchUser("1");
+    });
+    return profileController.isLoading.value == true ? Center(
+      child : CircularProgressIndicator()
+    ) : SafeArea(
+        child: Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
-            width : 225,
-            height : 225,
+            width: 225,
+            height: 225,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: Colours.shimmerColor,
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top : 8.0, bottom : 8.0,),
-            child: Text("Nama", style : TextStyle(fontWeight: FontWeight.bold, fontSize : 24.0)),
+            padding: const EdgeInsets.only(
+              top: 8.0,
+              bottom: 8.0,
+            ),
+            child: Text("Nama",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom : 16.0),
-            child: Text("Email", style : TextStyle(fontSize : 14.0)),
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: Text("Email", style: TextStyle(fontSize: 14.0)),
           ),
-          Card(child : Column(
+          Text(profileController.profileData.toJson()),
+          Card(
+              child: Column(
             children: [
               ListTile(
                 leading: Icon(Icons.person),
@@ -42,24 +58,24 @@ class ProfilePage extends HookWidget {
               ),
               ListTile(
                 leading: Icon(Icons.exit_to_app),
-                title : Text("Keluar"),
+                title: Text("Keluar"),
                 trailing: Icon(Icons.arrow_forward_ios),
                 onTap: () {
                   Alerts.logoutAlert(
-                    title: "Logout",
-                    subTitle: "Apakah kamu ingin keluar?",
-                    withCancel: true,
-                    onPressed: () {
-
-                    }, onCancelPressed: () {
-                      Get.back();
-                    }, context: context);
+                      title: "Logout",
+                      subTitle: "Apakah kamu ingin keluar?",
+                      withCancel: true,
+                      onPressed: () {},
+                      onCancelPressed: () {
+                        Get.back();
+                      },
+                      context: context);
                 },
               )
-            ],))
+            ],
+          ))
         ],
       ),
     ));
   }
-
 }

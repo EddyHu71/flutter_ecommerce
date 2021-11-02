@@ -6,19 +6,15 @@ class UpdateProfile extends HookWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Update Profile"),
-        centerTitle: true,
-      ),
-      body : Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            Text("Update Profile")
-          ],
+        appBar: AppBar(
+          title: Text("Update Profile"),
+          centerTitle: true,
         ),
-      )
-    );
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [Text("Update Profile")],
+          ),
+        ));
   }
-
 }

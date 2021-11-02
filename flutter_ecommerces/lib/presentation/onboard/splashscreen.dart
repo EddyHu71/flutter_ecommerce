@@ -12,10 +12,8 @@ import 'package:get/get.dart';
 class SplashScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
-
-    final AuthController authController = Get.put(getIt<AuthController>());    
+    final AuthController authController = Get.put(getIt<AuthController>());
     useEffect(() {
-      
       Timer(Duration(seconds: 3), () async {
         var cek = false;
         if (cek == true) {
