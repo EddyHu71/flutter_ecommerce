@@ -21,7 +21,9 @@ Name _$NameFromJson(Map<String, dynamic> json) {
 class _$NameTearOff {
   const _$NameTearOff();
 
-  _Name call({String? firstname, String? lastname}) {
+  _Name call(
+      {@JsonKey(name: "firstname") String? firstname,
+      @JsonKey(name: "lastname") String? lastname}) {
     return _Name(
       firstname: firstname,
       lastname: lastname,
@@ -38,7 +40,9 @@ const $Name = _$NameTearOff();
 
 /// @nodoc
 mixin _$Name {
+  @JsonKey(name: "firstname")
   String? get firstname => throw _privateConstructorUsedError;
+  @JsonKey(name: "lastname")
   String? get lastname => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,7 +54,9 @@ mixin _$Name {
 abstract class $NameCopyWith<$Res> {
   factory $NameCopyWith(Name value, $Res Function(Name) then) =
       _$NameCopyWithImpl<$Res>;
-  $Res call({String? firstname, String? lastname});
+  $Res call(
+      {@JsonKey(name: "firstname") String? firstname,
+      @JsonKey(name: "lastname") String? lastname});
 }
 
 /// @nodoc
@@ -84,7 +90,9 @@ abstract class _$NameCopyWith<$Res> implements $NameCopyWith<$Res> {
   factory _$NameCopyWith(_Name value, $Res Function(_Name) then) =
       __$NameCopyWithImpl<$Res>;
   @override
-  $Res call({String? firstname, String? lastname});
+  $Res call(
+      {@JsonKey(name: "firstname") String? firstname,
+      @JsonKey(name: "lastname") String? lastname});
 }
 
 /// @nodoc
@@ -117,13 +125,17 @@ class __$NameCopyWithImpl<$Res> extends _$NameCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Name implements _Name {
-  _$_Name({this.firstname, this.lastname});
+  _$_Name(
+      {@JsonKey(name: "firstname") this.firstname,
+      @JsonKey(name: "lastname") this.lastname});
 
   factory _$_Name.fromJson(Map<String, dynamic> json) => _$$_NameFromJson(json);
 
   @override
+  @JsonKey(name: "firstname")
   final String? firstname;
   @override
+  @JsonKey(name: "lastname")
   final String? lastname;
 
   @override
@@ -157,13 +169,17 @@ class _$_Name implements _Name {
 }
 
 abstract class _Name implements Name {
-  factory _Name({String? firstname, String? lastname}) = _$_Name;
+  factory _Name(
+      {@JsonKey(name: "firstname") String? firstname,
+      @JsonKey(name: "lastname") String? lastname}) = _$_Name;
 
   factory _Name.fromJson(Map<String, dynamic> json) = _$_Name.fromJson;
 
   @override
+  @JsonKey(name: "firstname")
   String? get firstname;
   @override
+  @JsonKey(name: "lastname")
   String? get lastname;
   @override
   @JsonKey(ignore: true)

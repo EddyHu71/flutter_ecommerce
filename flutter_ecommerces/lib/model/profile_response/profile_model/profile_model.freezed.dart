@@ -23,10 +23,10 @@ class _$ProfileModelTearOff {
 
   _ProfileModel call(
       {int? id,
-      String? email,
-      String? username,
+      @JsonKey(name: "email") String? email,
+      @JsonKey(name: "username") String? username,
       String? password,
-      Name? name,
+      @JsonKey(name: "name") Name? name,
       Address? address,
       String? phone}) {
     return _ProfileModel(
@@ -51,9 +51,12 @@ const $ProfileModel = _$ProfileModelTearOff();
 /// @nodoc
 mixin _$ProfileModel {
   int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "email")
   String? get email => throw _privateConstructorUsedError;
+  @JsonKey(name: "username")
   String? get username => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
+  @JsonKey(name: "name")
   Name? get name => throw _privateConstructorUsedError;
   Address? get address => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
@@ -71,10 +74,10 @@ abstract class $ProfileModelCopyWith<$Res> {
       _$ProfileModelCopyWithImpl<$Res>;
   $Res call(
       {int? id,
-      String? email,
-      String? username,
+      @JsonKey(name: "email") String? email,
+      @JsonKey(name: "username") String? username,
       String? password,
-      Name? name,
+      @JsonKey(name: "name") Name? name,
       Address? address,
       String? phone});
 
@@ -164,10 +167,10 @@ abstract class _$ProfileModelCopyWith<$Res>
   @override
   $Res call(
       {int? id,
-      String? email,
-      String? username,
+      @JsonKey(name: "email") String? email,
+      @JsonKey(name: "username") String? username,
       String? password,
-      Name? name,
+      @JsonKey(name: "name") Name? name,
       Address? address,
       String? phone});
 
@@ -235,10 +238,10 @@ class __$ProfileModelCopyWithImpl<$Res> extends _$ProfileModelCopyWithImpl<$Res>
 class _$_ProfileModel implements _ProfileModel {
   _$_ProfileModel(
       {this.id,
-      this.email,
-      this.username,
+      @JsonKey(name: "email") this.email,
+      @JsonKey(name: "username") this.username,
       this.password,
-      this.name,
+      @JsonKey(name: "name") this.name,
       this.address,
       this.phone});
 
@@ -248,12 +251,15 @@ class _$_ProfileModel implements _ProfileModel {
   @override
   final int? id;
   @override
+  @JsonKey(name: "email")
   final String? email;
   @override
+  @JsonKey(name: "username")
   final String? username;
   @override
   final String? password;
   @override
+  @JsonKey(name: "name")
   final Name? name;
   @override
   final Address? address;
@@ -299,10 +305,10 @@ class _$_ProfileModel implements _ProfileModel {
 abstract class _ProfileModel implements ProfileModel {
   factory _ProfileModel(
       {int? id,
-      String? email,
-      String? username,
+      @JsonKey(name: "email") String? email,
+      @JsonKey(name: "username") String? username,
       String? password,
-      Name? name,
+      @JsonKey(name: "name") Name? name,
       Address? address,
       String? phone}) = _$_ProfileModel;
 
@@ -312,12 +318,15 @@ abstract class _ProfileModel implements ProfileModel {
   @override
   int? get id;
   @override
+  @JsonKey(name: "email")
   String? get email;
   @override
+  @JsonKey(name: "username")
   String? get username;
   @override
   String? get password;
   @override
+  @JsonKey(name: "name")
   Name? get name;
   @override
   Address? get address;

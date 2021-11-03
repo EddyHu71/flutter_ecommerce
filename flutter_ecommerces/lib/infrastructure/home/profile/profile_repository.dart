@@ -16,9 +16,12 @@ class ProfileRepository implements IProfileRepository {
     try {
       var res = await iNetworkService.getHttp(path: UrlPath.getProfile + id);
       await Future.delayed(const Duration(seconds: 3));
+      print("Res value from getProfile");
+      print(res);
       if (res != null) {
-        Map<String, dynamic> json  = res as Map<String, dynamic>;
+        Map<String, dynamic> json = res as Map<String, dynamic>;
         print("Get Profile success");
+        print(json);
         return right(ProfileModel.fromJson(json));
       }
       print("Profile failed");

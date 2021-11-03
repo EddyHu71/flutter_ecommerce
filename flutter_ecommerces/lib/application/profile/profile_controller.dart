@@ -9,27 +9,40 @@ import 'package:injectable/injectable.dart';
 class ProfileController extends GetxController {
   final IProfileRepository iProfileRepository;
   ProfileController(this.iProfileRepository);
-  Rx<Option<Either<ProfileFailure, ProfileModel>>> optionFailOrSuccess = none<Either<ProfileFailure, ProfileModel>>().obs;
+  Rx<Option<Either<ProfileFailure, ProfileModel>>> optionFailOrSuccess =
+      none<Either<ProfileFailure, ProfileModel>>().obs;
   Rx<ProfileModel> profileData = ProfileModel().obs;
   Rx<bool> isLoading = false.obs;
+
+  @override
+  void onInit() {
+    fetchUser("1");
+    super.onInit();
+  }
 
   Future<void> fetchUser(String id) async {
     isLoading.value = true;
     print("Fetch User executed");
-    var res = await iProfileRepository.getProfile(id);
+    Either<ProfileFailure, ProfileModel> res =
+        await iProfileRepository.getProfile(id);
     optionFailOrSuccess.value = optionOf(res);
-    print("Option Fail or Success");
+    print("Option Fail or Success Value");
     print(optionFailOrSuccess.value);
-    isLoading.value = false;
-    print("is Loading value");
-    print(isLoading.value);
+    print("Res value");
     print(res);
+
+    isLoading.value = false;
     res.match((l) {
-      print("Left");
-      // l.maybeMap(
-      //   orElse: () => null);
+      print("Left Value");
+      print(l);
+      // return left(ProfileFailure.failed());
     }, (r) {
-      
+      print("Right value");
+      print(r.name);
+      profileData.value = r;
+      print("Profile Data");
+      print(profileData.value);
+      // return right(profileData);
     });
   }
 }

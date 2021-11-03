@@ -10,12 +10,12 @@ part 'profile_model.g.dart';
 class ProfileModel with _$ProfileModel {
   factory ProfileModel({
     int? id,
-    String email,
-    String username,
-    String password,
-    Name name,
-    Address address,
-    String phone,
+    @JsonKey(name: "email") String? email,
+    @JsonKey(name: "username") String? username,
+    String? password,
+    @JsonKey(name: "name") Name? name,
+    Address? address,
+    String? phone,
   }) = _ProfileModel;
 
   factory ProfileModel.fromJson(Map<String, dynamic> json) =>
