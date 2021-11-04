@@ -2,25 +2,20 @@ import 'package:flutter_ecommerces/presentation/core/colours.dart';
 import 'package:flutter/material.dart';
 
 class Buttons extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final String text;
   final bool? requiredIcon;
-  final Color? btnColors;
-  final Color? splashBtnColor;
   Buttons({
-    required this.onPressed,
+    this.onPressed,
     required this.text,
     this.requiredIcon,
-    this.btnColors,
-    this.splashBtnColor,
   });
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return RawMaterialButton(
-        fillColor: btnColors == null ? Colours.buttonColor : btnColors,
-        splashColor:
-            splashBtnColor == null ? Colours.splashButtonColor : splashBtnColor,
+        fillColor: onPressed != null ? Colours.buttonColor : Colors.grey,
+        splashColor: onPressed != null ? Colours.buttonColor.withOpacity(0.4) : Colors.grey.withOpacity(0.4) ,
         onPressed: onPressed,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(

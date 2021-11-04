@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerces/application/profile/profile_controller.dart';
 import 'package:flutter_ecommerces/infrastructure/profile/profile_response/profile_model.dart';
+import 'package:flutter_ecommerces/presentation/core/appbars.dart';
 import 'package:flutter_ecommerces/presentation/core/buttons.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
@@ -22,13 +23,13 @@ class UpdateProfile extends HookWidget {
     final email = useTextEditingController(text: profileData.email!);
     final password = useTextEditingController(text: profileData.password);
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Update Profile"),
-          centerTitle: true,
-        ),
+        appBar: AppBars.appBars(title: "Update Profile"),
+        resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
+          child: Form(
+            autovalidateMode: AutovalidateMode.onUserInteraction,
+            child : Column(
             children: [
               Container(
                   child: Row(
@@ -139,19 +140,17 @@ class UpdateProfile extends HookWidget {
                 child: SizedBox(),
               ),
               Buttons(
-                  splashBtnColor: Colors.blue.withOpacity(0.4),
-                  btnColors: Colors.blue,
-                  onPressed: () {
+                  onPressed: profileController.isValidated.value ? () {
                     profileController.updateUser("7");
                     print("Update User");
                     // if (profileController.isValidated.value == true) {
                     //   profileController.updateUser();
                     //   print("Update User");
                     // }
-                  },
+                  } : null,
                   text: "UPDATE")
             ],
-          ),
+          ),)
         ));
   }
 }

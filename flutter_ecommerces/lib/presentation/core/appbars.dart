@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerces/presentation/core/colours.dart';
 
 class AppBars {
   static AppBar appBars({required String title}) => AppBar(
-        elevation: 0,
-        title: Text(title, style: TextStyle(color: Colors.black)),
+        title: Text(title),
         centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
+        backgroundColor: Colours.buttonColor,
       );
 }

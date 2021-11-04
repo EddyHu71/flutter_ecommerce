@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ecommerces/injection.dart';
-import 'package:flutter_ecommerces/application/profile/profile_controller.dart';
+import 'package:flutter_ecommerces/presentation/core/appbars.dart';
+import 'package:flutter_ecommerces/presentation/core/colours.dart';
 import 'package:flutter_ecommerces/presentation/home/dashboard/dashboard_page.dart';
 import 'package:flutter_ecommerces/presentation/home/profile/profile_page.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -21,10 +21,7 @@ class HomePage extends HookWidget {
     // TODO: implement build
     final _selectedIndex = useState(index);
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home"),
-        centerTitle: true,
-      ),
+      appBar: AppBars.appBars(title: "Home"),
       body: _pages[_selectedIndex.value],
       bottomNavigationBar: BottomNavigationBar(
           onTap: (int index) {
@@ -37,7 +34,4 @@ class HomePage extends HookWidget {
           ]),
     );
   }
-}
-
-getIt() {
 }

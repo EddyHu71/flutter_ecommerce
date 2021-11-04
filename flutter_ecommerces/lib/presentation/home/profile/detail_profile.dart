@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerces/infrastructure/profile/profile_response/profile_model.dart';
+import 'package:flutter_ecommerces/presentation/core/appbars.dart';
 import 'package:flutter_ecommerces/presentation/core/buttons.dart';
 import 'package:flutter_ecommerces/presentation/core/utils.dart';
 import 'package:flutter_ecommerces/presentation/home/profile/update_profile.dart';
@@ -14,10 +15,7 @@ class DetailProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        appBar: AppBar(
-          title: Text("BioData"),
-          centerTitle: true,
-        ),
+        appBar: AppBars.appBars(title: "Detail Profile"),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -63,8 +61,7 @@ class DetailProfile extends StatelessWidget {
               ),
               Expanded(child: SizedBox()),
               Buttons(
-                splashBtnColor: Colors.blue.withOpacity(0.4),
-                btnColors: Colors.blue,
+                
                 onPressed: () {
                   Get.to(UpdateProfile(profileData: profileModel));
               }, text: "EDIT"

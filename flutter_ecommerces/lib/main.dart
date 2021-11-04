@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       getPages: Routers().routers,
-      initialRoute: Routers.home,
+      initialRoute: Routers.splashScreen,
     );
   }
 }

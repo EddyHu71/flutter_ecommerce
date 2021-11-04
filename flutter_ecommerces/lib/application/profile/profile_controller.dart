@@ -29,7 +29,7 @@ class ProfileController extends GetxController {
         username.value.isValid() &&
         email.value.isValid() &&
         password.value.isValid();
-    print("Validated value ${isValidated.value}");
+    print("Validated profile ${isValidated.value}");
   }
 
   FirstName get getFirstName => firstname.value;
