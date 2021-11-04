@@ -1,4 +1,3 @@
-
 import 'package:flutter_ecommerces/domain/core/failures.dart';
 import 'package:flutter_ecommerces/domain/core/value_objects.dart';
 import 'package:flutter_ecommerces/domain/core/value_validators.dart';
@@ -11,9 +10,7 @@ class FirstName extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory FirstName(String input) {
-    return FirstName._(
-      validateName(input)
-    );
+    return FirstName._(validateName(input));
   }
   const FirstName._(this.value);
 }
@@ -52,13 +49,12 @@ class Username extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory Username(String input) {
-    return Username._(
-      validateUsername(input)
-    );
+    return Username._(validateUsername(input));
   }
 
   const Username._(this.value);
 }
+
 class Password extends ValueObject<String> {
   @override
   // TODO: implement value

@@ -9,4 +9,5 @@ class UrlPath {
   static const String register = '/users';
   static const String getProfile = "/users/";
   static const String updateProfile = "/users/";
+  static const String viewData = "/products/";
 }

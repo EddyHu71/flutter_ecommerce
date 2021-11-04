@@ -16,8 +16,7 @@ class Routers {
   final List<GetPage> routers = [
     GetPage(name: Routers.splashScreen, page: () => SplashScreen()),
     GetPage(name: Routers.onboard, page: () => OnBoard()),
-    GetPage(name: Routers.home, page: () => HomePage(
-    )),
+    GetPage(name: Routers.home, page: () => HomePage()),
     GetPage(name: Routers.register, page: () => RegisterPage()),
     GetPage(name: Routers.login, page: () => LoginPage()),
   ];

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_ecommerces/injection.dart';
+import 'package:flutter_ecommerces/application/profile/profile_controller.dart';
 import 'package:flutter_ecommerces/presentation/home/dashboard/dashboard_page.dart';
 import 'package:flutter_ecommerces/presentation/home/profile/profile_page.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class HomePage extends HookWidget {
-  final int index = 0; 
-  HomePage({Key? key, int? index}) : super(key: key,);
+  final int index = 0;
+  HomePage({Key? key, int? index})
+      : super(
+          key: key,
+        );
 
   final _pages = [
     DashboardPage(),
@@ -33,4 +37,7 @@ class HomePage extends HookWidget {
           ]),
     );
   }
+}
+
+getIt() {
 }
