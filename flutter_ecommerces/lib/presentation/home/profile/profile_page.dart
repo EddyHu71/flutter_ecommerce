@@ -34,22 +34,41 @@ class ProfilePage extends StatelessWidget {
               Container(
                   width: 225,
                   height: 225,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colours.shimmerColor,
-                  ),
                   child : Image.asset(Utils.PROFILE_PHOTO, fit : BoxFit.fitWidth),
                 ),
-              Padding(
+                Padding(
                 padding: const EdgeInsets.only(
                   top: 8.0,
                   // bottom: 8.0,
                 ),
-                child: Text(profileController.profileData.value.name!.firstname!.toString(),
-                    // profileController.profileData.value.name!.firstname!.capitalize.toString() + " " +profileController.profileData.value.name!.lastname!.capitalize.toString(),
-                    style:
-                        TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                child: Text.rich(
+                  TextSpan(
+                    text: profileController.profileData.value.name!.firstname!.capitalizeFirst,
+                    style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+                    children: <InlineSpan>[
+                      TextSpan(text: " "),
+                      TextSpan(
+                        text: profileController.profileData.value.name!.lastname!.capitalizeFirst,
+                        style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
+                      )
+                    ]
+                  )
+                ),
+                // Row(
+                //   mainAxisSize: MainAxisSize.min,
+                //   children: [
+                //   Text(profileController.profileData.value.name!.firstname!.capitalizeFirst ?? 'Name',
+                //     style:
+                //         TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                //   Text(" "),
+                //   Text(profileController.profileData.value.name!.lastname!.capitalizeFirst ?? 'Name',
+                //     style:
+                //         TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
+                // ],)
               ),
+              Text(profileController.profileData.value.username!.toString(),
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
                 child: Text(profileController.profileData.value.email!, style: TextStyle(fontSize: 14.0)),
@@ -62,7 +81,9 @@ class ProfilePage extends StatelessWidget {
                 title: Text("Profil"),
                 trailing: Icon(Icons.arrow_forward_ios),
                 onTap: () {
-                  Get.to(DetailProfile());
+                  Get.to(DetailProfile(
+                    profileModel: profileController.profileData.value,
+                  ));
                 },
               ),
               ListTile(
@@ -86,65 +107,5 @@ class ProfilePage extends StatelessWidget {
             ],
           )),
     );
-    // return SafeArea(
-    //     child: Padding(
-    //   padding: const EdgeInsets.all(16.0),
-    //   child: Column(
-    //     mainAxisSize: MainAxisSize.max,
-    //     children: [
-    //       Container(
-    //         width: 225,
-    //         height: 225,
-    //         decoration: BoxDecoration(
-    //           shape: BoxShape.circle,
-    //           color: Colours.shimmerColor,
-    //         ),
-    //       ),
-    //       // Text(profileController.profileData.toJson().toString() ),
-    //       Padding(
-    //         padding: const EdgeInsets.only(
-    //           top: 8.0,
-    //           bottom: 8.0,
-    //         ),
-    //         child: Text(listData.name!.firstname! + " " + listData.name!.lastname!,
-    //             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-    //       ),
-    //       Padding(
-    //         padding: const EdgeInsets.only(bottom: 16.0),
-    //         child: Text(listData.email!, style: TextStyle(fontSize: 14.0)),
-    //       ),
-    //       Text(profileController.profileData!.email),
-    //       Card(
-    //           child: Column(
-    //         children: [
-    //           ListTile(
-    //             leading: Icon(Icons.person),
-    //             title: Text("Profil"),
-    //             trailing: Icon(Icons.arrow_forward_ios),
-    //             onTap: () {
-    //               Get.to(DetailProfile());
-    //             },
-    //           ),
-    //           ListTile(
-    //             leading: Icon(Icons.exit_to_app),
-    //             title: Text("Keluar"),
-    //             trailing: Icon(Icons.arrow_forward_ios),
-    //             onTap: () {
-    //               Alerts.logoutAlert(
-    //                   title: "Logout",
-    //                   subTitle: "Apakah kamu ingin keluar?",
-    //                   withCancel: true,
-    //                   onPressed: () {},
-    //                   onCancelPressed: () {
-    //                     Get.back();
-    //                   },
-    //                   context: context);
-    //             },
-    //           )
-    //         ],
-    //       ))
-    //     ],
-    //   ),
-    // ));
   }
 }

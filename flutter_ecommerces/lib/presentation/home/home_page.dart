@@ -12,7 +12,7 @@ class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    final _selectedIndex = useState(0);
+    final _selectedIndex = useState(1);
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),

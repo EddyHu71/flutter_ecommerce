@@ -1,7 +1,7 @@
 import 'package:flutter_ecommerces/domain/core/i_network_service.dart';
 import 'package:flutter_ecommerces/domain/home/profile/i_profile_repository.dart';
 import 'package:flutter_ecommerces/infrastructure/core/link_connect.dart';
-import 'package:flutter_ecommerces/model/profile_response/profile_model/profile_model.dart';
+import 'package:flutter_ecommerces/model/profile_response/profile_model.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:flutter_ecommerces/domain/home/profile/profile_failure.dart';
 import 'package:injectable/injectable.dart';
@@ -26,6 +26,24 @@ class ProfileRepository implements IProfileRepository {
       }
       print("Profile failed");
       return left(ProfileFailure.invalidUser());
+    } catch (e) {
+      return left(ProfileFailure.failed());
+    }
+  }
+
+  @override
+  Future<Either<ProfileFailure, Unit>> updateProfile(String id) async {
+    // TODO: implement updateProfile
+    try {
+      final Map<String, dynamic> req = {
+
+      };
+      var res = await iNetworkService.postHttp(path: UrlPath.updateProfile, content: req);
+      if (res != null) {
+        return right(unit);
+      }
+      print("Update Profile failed");
+      return left(ProfileFailure.invalidUpdate());
     } catch (e) {
       return left(ProfileFailure.failed());
     }

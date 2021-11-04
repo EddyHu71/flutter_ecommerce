@@ -5,17 +5,21 @@ class Buttons extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
   final bool? requiredIcon;
+  final Color? btnColors;
+  final Color? splashBtnColor;
   Buttons({
     required this.onPressed,
     required this.text,
     this.requiredIcon,
+    this.btnColors,
+    this.splashBtnColor,
   });
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return RawMaterialButton(
-        fillColor: Colours.buttonColor,
-        splashColor: Colours.splashButtonColor,
+        fillColor: btnColors == null ? Colours.buttonColor : btnColors,
+        splashColor: splashBtnColor == null ? Colours.splashButtonColor : splashBtnColor,
         onPressed: onPressed,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(

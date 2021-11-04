@@ -29,6 +29,10 @@ class _$ProfileFailureTearOff {
     return const _InvalidLogin();
   }
 
+  _InvalidUpdateProfile invalidUpdate() {
+    return const _InvalidUpdateProfile();
+  }
+
   _Failed failed() {
     return const _Failed();
   }
@@ -44,6 +48,7 @@ mixin _$ProfileFailure {
     required TResult Function() serverError,
     required TResult Function() noInternet,
     required TResult Function() invalidUser,
+    required TResult Function() invalidUpdate,
     required TResult Function() failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +57,7 @@ mixin _$ProfileFailure {
     TResult Function()? serverError,
     TResult Function()? noInternet,
     TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
     TResult Function()? failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +66,7 @@ mixin _$ProfileFailure {
     TResult Function()? serverError,
     TResult Function()? noInternet,
     TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
     TResult Function()? failed,
     required TResult orElse(),
   }) =>
@@ -69,6 +76,7 @@ mixin _$ProfileFailure {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_InvalidLogin value) invalidUser,
+    required TResult Function(_InvalidUpdateProfile value) invalidUpdate,
     required TResult Function(_Failed value) failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -77,6 +85,7 @@ mixin _$ProfileFailure {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
     TResult Function(_Failed value)? failed,
   }) =>
       throw _privateConstructorUsedError;
@@ -85,6 +94,7 @@ mixin _$ProfileFailure {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) =>
@@ -152,6 +162,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function() serverError,
     required TResult Function() noInternet,
     required TResult Function() invalidUser,
+    required TResult Function() invalidUpdate,
     required TResult Function() failed,
   }) {
     return serverError();
@@ -163,6 +174,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? serverError,
     TResult Function()? noInternet,
     TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
     TResult Function()? failed,
   }) {
     return serverError?.call();
@@ -174,6 +186,7 @@ class _$_ServerError implements _ServerError {
     TResult Function()? serverError,
     TResult Function()? noInternet,
     TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
     TResult Function()? failed,
     required TResult orElse(),
   }) {
@@ -189,6 +202,7 @@ class _$_ServerError implements _ServerError {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_InvalidLogin value) invalidUser,
+    required TResult Function(_InvalidUpdateProfile value) invalidUpdate,
     required TResult Function(_Failed value) failed,
   }) {
     return serverError(this);
@@ -200,6 +214,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
     TResult Function(_Failed value)? failed,
   }) {
     return serverError?.call(this);
@@ -211,6 +226,7 @@ class _$_ServerError implements _ServerError {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -268,6 +284,7 @@ class _$_NoInternet implements _NoInternet {
     required TResult Function() serverError,
     required TResult Function() noInternet,
     required TResult Function() invalidUser,
+    required TResult Function() invalidUpdate,
     required TResult Function() failed,
   }) {
     return noInternet();
@@ -279,6 +296,7 @@ class _$_NoInternet implements _NoInternet {
     TResult Function()? serverError,
     TResult Function()? noInternet,
     TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
     TResult Function()? failed,
   }) {
     return noInternet?.call();
@@ -290,6 +308,7 @@ class _$_NoInternet implements _NoInternet {
     TResult Function()? serverError,
     TResult Function()? noInternet,
     TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
     TResult Function()? failed,
     required TResult orElse(),
   }) {
@@ -305,6 +324,7 @@ class _$_NoInternet implements _NoInternet {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_InvalidLogin value) invalidUser,
+    required TResult Function(_InvalidUpdateProfile value) invalidUpdate,
     required TResult Function(_Failed value) failed,
   }) {
     return noInternet(this);
@@ -316,6 +336,7 @@ class _$_NoInternet implements _NoInternet {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
     TResult Function(_Failed value)? failed,
   }) {
     return noInternet?.call(this);
@@ -327,6 +348,7 @@ class _$_NoInternet implements _NoInternet {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -385,6 +407,7 @@ class _$_InvalidLogin implements _InvalidLogin {
     required TResult Function() serverError,
     required TResult Function() noInternet,
     required TResult Function() invalidUser,
+    required TResult Function() invalidUpdate,
     required TResult Function() failed,
   }) {
     return invalidUser();
@@ -396,6 +419,7 @@ class _$_InvalidLogin implements _InvalidLogin {
     TResult Function()? serverError,
     TResult Function()? noInternet,
     TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
     TResult Function()? failed,
   }) {
     return invalidUser?.call();
@@ -407,6 +431,7 @@ class _$_InvalidLogin implements _InvalidLogin {
     TResult Function()? serverError,
     TResult Function()? noInternet,
     TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
     TResult Function()? failed,
     required TResult orElse(),
   }) {
@@ -422,6 +447,7 @@ class _$_InvalidLogin implements _InvalidLogin {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_InvalidLogin value) invalidUser,
+    required TResult Function(_InvalidUpdateProfile value) invalidUpdate,
     required TResult Function(_Failed value) failed,
   }) {
     return invalidUser(this);
@@ -433,6 +459,7 @@ class _$_InvalidLogin implements _InvalidLogin {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
     TResult Function(_Failed value)? failed,
   }) {
     return invalidUser?.call(this);
@@ -444,6 +471,7 @@ class _$_InvalidLogin implements _InvalidLogin {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {
@@ -456,6 +484,129 @@ class _$_InvalidLogin implements _InvalidLogin {
 
 abstract class _InvalidLogin implements ProfileFailure {
   const factory _InvalidLogin() = _$_InvalidLogin;
+}
+
+/// @nodoc
+abstract class _$InvalidUpdateProfileCopyWith<$Res> {
+  factory _$InvalidUpdateProfileCopyWith(_InvalidUpdateProfile value,
+          $Res Function(_InvalidUpdateProfile) then) =
+      __$InvalidUpdateProfileCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$InvalidUpdateProfileCopyWithImpl<$Res>
+    extends _$ProfileFailureCopyWithImpl<$Res>
+    implements _$InvalidUpdateProfileCopyWith<$Res> {
+  __$InvalidUpdateProfileCopyWithImpl(
+      _InvalidUpdateProfile _value, $Res Function(_InvalidUpdateProfile) _then)
+      : super(_value, (v) => _then(v as _InvalidUpdateProfile));
+
+  @override
+  _InvalidUpdateProfile get _value => super._value as _InvalidUpdateProfile;
+}
+
+/// @nodoc
+
+class _$_InvalidUpdateProfile implements _InvalidUpdateProfile {
+  const _$_InvalidUpdateProfile();
+
+  @override
+  String toString() {
+    return 'ProfileFailure.invalidUpdate()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _InvalidUpdateProfile);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() noInternet,
+    required TResult Function() invalidUser,
+    required TResult Function() invalidUpdate,
+    required TResult Function() failed,
+  }) {
+    return invalidUpdate();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? noInternet,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
+    TResult Function()? failed,
+  }) {
+    return invalidUpdate?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? noInternet,
+    TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
+    TResult Function()? failed,
+    required TResult orElse(),
+  }) {
+    if (invalidUpdate != null) {
+      return invalidUpdate();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_NoInternet value) noInternet,
+    required TResult Function(_InvalidLogin value) invalidUser,
+    required TResult Function(_InvalidUpdateProfile value) invalidUpdate,
+    required TResult Function(_Failed value) failed,
+  }) {
+    return invalidUpdate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
+    TResult Function(_Failed value)? failed,
+  }) {
+    return invalidUpdate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_NoInternet value)? noInternet,
+    TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
+    TResult Function(_Failed value)? failed,
+    required TResult orElse(),
+  }) {
+    if (invalidUpdate != null) {
+      return invalidUpdate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidUpdateProfile implements ProfileFailure {
+  const factory _InvalidUpdateProfile() = _$_InvalidUpdateProfile;
 }
 
 /// @nodoc
@@ -499,6 +650,7 @@ class _$_Failed implements _Failed {
     required TResult Function() serverError,
     required TResult Function() noInternet,
     required TResult Function() invalidUser,
+    required TResult Function() invalidUpdate,
     required TResult Function() failed,
   }) {
     return failed();
@@ -510,6 +662,7 @@ class _$_Failed implements _Failed {
     TResult Function()? serverError,
     TResult Function()? noInternet,
     TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
     TResult Function()? failed,
   }) {
     return failed?.call();
@@ -521,6 +674,7 @@ class _$_Failed implements _Failed {
     TResult Function()? serverError,
     TResult Function()? noInternet,
     TResult Function()? invalidUser,
+    TResult Function()? invalidUpdate,
     TResult Function()? failed,
     required TResult orElse(),
   }) {
@@ -536,6 +690,7 @@ class _$_Failed implements _Failed {
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_NoInternet value) noInternet,
     required TResult Function(_InvalidLogin value) invalidUser,
+    required TResult Function(_InvalidUpdateProfile value) invalidUpdate,
     required TResult Function(_Failed value) failed,
   }) {
     return failed(this);
@@ -547,6 +702,7 @@ class _$_Failed implements _Failed {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
     TResult Function(_Failed value)? failed,
   }) {
     return failed?.call(this);
@@ -558,6 +714,7 @@ class _$_Failed implements _Failed {
     TResult Function(_ServerError value)? serverError,
     TResult Function(_NoInternet value)? noInternet,
     TResult Function(_InvalidLogin value)? invalidUser,
+    TResult Function(_InvalidUpdateProfile value)? invalidUpdate,
     TResult Function(_Failed value)? failed,
     required TResult orElse(),
   }) {

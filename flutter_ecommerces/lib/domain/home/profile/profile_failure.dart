@@ -6,5 +6,6 @@ class ProfileFailure with _$ProfileFailure {
   const factory ProfileFailure.serverError() = _ServerError;
   const factory ProfileFailure.noInternet() = _NoInternet;
   const factory ProfileFailure.invalidUser() = _InvalidLogin;
+  const factory ProfileFailure.invalidUpdate() = _InvalidUpdateProfile;
   const factory ProfileFailure.failed() = _Failed;
 }

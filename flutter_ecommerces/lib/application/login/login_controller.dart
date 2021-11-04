@@ -1,7 +1,6 @@
 import 'package:flutter_ecommerces/domain/core/i_storage.dart';
 import 'package:flutter_ecommerces/domain/login/i_login_repository.dart';
 import 'package:flutter_ecommerces/domain/login/login_objects.dart';
-import 'package:flutter_ecommerces/infrastructure/core/storage.dart';
 import 'package:flutter_ecommerces/infrastructure/core/storage_token.dart';
 import 'package:flutter_ecommerces/presentation/routers/routers.dart';
 import 'package:get/get.dart';

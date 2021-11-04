@@ -43,6 +43,14 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
   }
 }
 
+Either<ValueFailure<String>, String> validateName(String input) {
+  if (input.length >= 4) {
+    return right(input);
+  } else {
+    return left(ValueFailure.invalidName(failedValue: input));
+  }
+}
+
 Either<ValueFailure<String>, String> validateUsername(String input) {
   if (input.length >= 4) {
     return right(input);
