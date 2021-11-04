@@ -10,10 +10,10 @@ part 'profile_model.g.dart';
 class ProfileModel with _$ProfileModel {
   factory ProfileModel({
     int? id,
-    @JsonKey(name: "email") String? email,
-    @JsonKey(name: "username") String? username,
+    String? email,
+    String? username,
     String? password,
-    @JsonKey(name: "name") Name? name,
+    Name? name,
     Address? address,
     String? phone,
   }) = _ProfileModel;

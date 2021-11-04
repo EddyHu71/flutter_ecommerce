@@ -135,7 +135,12 @@ class UpdateProfile extends HookWidget {
                 splashBtnColor: Colors.blue.withOpacity(0.4),
                 btnColors: Colors.blue,
                 onPressed: () {
-
+                  profileController.updateUser();
+                    print("Update User");
+                  if (profileController.isValidated.value == true) {
+                    profileController.updateUser();
+                    print("Update User");
+                  }
               }, text: "UPDATE")
             ],
           ),

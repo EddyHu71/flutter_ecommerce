@@ -15,7 +15,7 @@ class ProfileRepository implements IProfileRepository {
     // TODO: implement getProfile
     try {
       var res = await iNetworkService.getHttp(path: UrlPath.getProfile + id);
-      await Future.delayed(const Duration(seconds: 3));
+      // await Future.delayed(const Duration(seconds: 3));
       print("Res value from getProfile");
       print(res);
       if (res != null) {
@@ -32,13 +32,26 @@ class ProfileRepository implements IProfileRepository {
   }
 
   @override
-  Future<Either<ProfileFailure, Unit>> updateProfile(String id) async {
+  Future<Either<ProfileFailure, Unit>> updateProfile(
+    String firstName, 
+    String lastName, 
+    String username, 
+    String email, 
+    String password) async {
     // TODO: implement updateProfile
     try {
       final Map<String, dynamic> req = {
-
+        "email" : email,
+        "username" : username,
+        "password" : password,
+        "name":{
+          "firstname" : firstName,
+          "lastname" : lastName,
+        },
       };
       var res = await iNetworkService.postHttp(path: UrlPath.updateProfile, content: req);
+      print("Update profile repository");
+      print(res);
       if (res != null) {
         return right(unit);
       }

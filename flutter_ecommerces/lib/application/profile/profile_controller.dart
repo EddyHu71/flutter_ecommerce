@@ -2,6 +2,8 @@ import 'package:flutter_ecommerces/domain/home/profile/i_profile_repository.dart
 import 'package:flutter_ecommerces/domain/home/profile/profile_failure.dart';
 import 'package:flutter_ecommerces/domain/home/profile/profile_objects.dart';
 import 'package:flutter_ecommerces/model/profile_response/profile_model.dart';
+import 'package:flutter_ecommerces/presentation/home/home_page.dart';
+import 'package:flutter_ecommerces/presentation/routers/routers.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
@@ -92,5 +94,35 @@ class ProfileController extends GetxController {
       print(profileData.value);
       // return right(profileData);
     });
+  }
+
+    Future<void> updateUser() async {
+      isLoading.value = true;
+      print("Update User executed");
+      var res = await iProfileRepository.updateProfile(
+        firstname.value.getOrCrash(),
+        lastname.value.getOrCrash(),
+        username.value.getOrCrash(),
+        email.value.getOrCrash(),
+        password.value.getOrCrash(),
+      );
+      print("Res value");
+      print(res);
+      isLoading.value = false;
+      res.match(
+      (l) {
+        print("Left update profile");
+        Get.defaultDialog(
+        title: "Update Profile Failed",
+        middleText: "Update Profile Failed",
+        onConfirm: () async {
+          Get.back();
+        });
+      }, 
+      (r) {
+        print("Right Update");
+        Get.offNamedUntil(Routers.home, (route) => false);
+        
+      });
   }
 }

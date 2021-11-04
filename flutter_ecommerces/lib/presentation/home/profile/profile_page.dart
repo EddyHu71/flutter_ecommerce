@@ -22,7 +22,7 @@ class ProfilePage extends StatelessWidget {
                 }, (r) {
                   print("Right");
                 }),
-            () => null);
+            () => Center(child : CircularProgressIndicator()));
       });
     }
 
@@ -43,35 +43,24 @@ class ProfilePage extends StatelessWidget {
                 ),
                 child: Text.rich(
                   TextSpan(
-                    text: profileController.profileData.value.name!.firstname!.capitalizeFirst,
+                    text: profileController.profileData.value.name!.firstname!.capitalizeFirst ?? "First",
                     style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                     children: <InlineSpan>[
                       TextSpan(text: " "),
                       TextSpan(
-                        text: profileController.profileData.value.name!.lastname!.capitalizeFirst,
+                        text: profileController.profileData.value.name!.lastname!.capitalizeFirst ?? "Last",
                         style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                       )
                     ]
                   )
                 ),
-                // Row(
-                //   mainAxisSize: MainAxisSize.min,
-                //   children: [
-                //   Text(profileController.profileData.value.name!.firstname!.capitalizeFirst ?? 'Name',
-                //     style:
-                //         TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                //   Text(" "),
-                //   Text(profileController.profileData.value.name!.lastname!.capitalizeFirst ?? 'Name',
-                //     style:
-                //         TextStyle(fontWeight: FontWeight.bold, fontSize: 24.0)),
-                // ],)
               ),
-              Text(profileController.profileData.value.username!.toString(),
+              Text(profileController.profileData.value.username ?? "Username",
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
               Padding(
                 padding: const EdgeInsets.only(bottom: 16.0),
-                child: Text(profileController.profileData.value.email!, style: TextStyle(fontSize: 14.0)),
+                child: Text(profileController.profileData.value.email ?? "Email", style: TextStyle(fontSize: 14.0)),
               ),
             Card(
               child: Column(

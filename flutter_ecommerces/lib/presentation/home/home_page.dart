@@ -5,6 +5,9 @@ import 'package:flutter_ecommerces/presentation/home/profile/profile_page.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 class HomePage extends HookWidget {
+  final int index = 0; 
+  HomePage({Key? key, int? index}) : super(key: key,);
+
   final _pages = [
     DashboardPage(),
     ProfilePage(),
@@ -12,7 +15,7 @@ class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    final _selectedIndex = useState(1);
+    final _selectedIndex = useState(index);
     return Scaffold(
       appBar: AppBar(
         title: Text("Home"),
