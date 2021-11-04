@@ -45,7 +45,7 @@ class ProfileRepository implements IProfileRepository {
           "lastname": lastName,
         },
       };
-      var res = await iNetworkService.postHttp(
+      var res = await iNetworkService.putHttp(
           path: UrlPath.updateProfile+id, content: req);
       print("Update profile repository");
       print(res);

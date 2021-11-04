@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerces/infrastructure/profile/profile_response/profile_model.dart';
+import 'package:flutter_ecommerces/presentation/core/buttons.dart';
 import 'package:flutter_ecommerces/presentation/core/utils.dart';
 import 'package:flutter_ecommerces/presentation/home/profile/update_profile.dart';
 import 'package:get/get.dart';
@@ -16,13 +17,6 @@ class DetailProfile extends StatelessWidget {
         appBar: AppBar(
           title: Text("BioData"),
           centerTitle: true,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  Get.to(UpdateProfile(profileData: profileModel));
-                },
-                icon: Icon(Icons.edit))
-          ],
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -67,6 +61,14 @@ class DetailProfile extends StatelessWidget {
                 child:
                     Text(profileModel.email!, style: TextStyle(fontSize: 14.0)),
               ),
+              Expanded(child: SizedBox()),
+              Buttons(
+                splashBtnColor: Colors.blue.withOpacity(0.4),
+                btnColors: Colors.blue,
+                onPressed: () {
+                  Get.to(UpdateProfile(profileData: profileModel));
+              }, text: "EDIT"
+              )
             ],
           ),
         ));
