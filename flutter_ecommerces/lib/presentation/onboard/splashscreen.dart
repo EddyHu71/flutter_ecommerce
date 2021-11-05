@@ -13,17 +13,6 @@ class SplashScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final AuthController authController = Get.put(getIt<AuthController>());
-    useEffect(() {
-      Timer(Duration(seconds: 3), () async {
-        var cek = false;
-        if (cek == true) {
-          Get.offNamed(Routers.home);
-        } else {
-          Get.offNamed(Routers.onboard);
-        }
-      });
-      // authController.authToken();
-    });
     // TODO: implement build
     return Scaffold(
         body: Container(child: Center(child: Image.asset(Utils.LOGO))));

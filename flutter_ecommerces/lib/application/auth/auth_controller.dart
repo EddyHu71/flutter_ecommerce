@@ -27,6 +27,13 @@ class AuthController extends GetxController {
     isValid.value = token.value.isValid();
   }
 
+  @override
+  void onInit() {
+    authToken();
+    print("Init state fetch API");
+    super.onInit();
+  }
+
   Future<void> authToken() async {
     isLoading.value = true;
     print("Auth Token");

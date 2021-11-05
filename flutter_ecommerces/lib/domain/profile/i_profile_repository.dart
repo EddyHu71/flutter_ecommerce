@@ -4,6 +4,11 @@ import 'package:fpdart/fpdart.dart';
 
 abstract class IProfileRepository {
   Future<Either<ProfileFailure, ProfileModel>> getProfile(String id);
-  Future<Either<ProfileFailure, Unit>> updateProfile(String id, String firstName,
-      String lastName, String username, String email, String password);
+  Future<Either<ProfileFailure, Unit>> updateProfile(
+      String id,
+      String firstName,
+      String lastName,
+      String username,
+      String email,
+      String password);
 }

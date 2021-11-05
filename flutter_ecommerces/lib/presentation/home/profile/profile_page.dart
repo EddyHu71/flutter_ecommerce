@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_ecommerces/application/profile/profile_controller.dart';
 import 'package:flutter_ecommerces/injection.dart';
 import 'package:flutter_ecommerces/presentation/core/alerts.dart';
-import 'package:flutter_ecommerces/presentation/core/colours.dart';
 import 'package:flutter_ecommerces/presentation/core/utils.dart';
 import 'package:flutter_ecommerces/presentation/home/profile/detail_profile.dart';
 import 'package:get/get.dart';
@@ -11,20 +10,19 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    
-    final ProfileController profileController = Get.put(getIt<ProfileController>());
-    retWidget() {
-      profileController.optionFailOrSuccess.listen((option) {
-        option.match(
-            (t) => t.fold((l) {
-                  print("Left");
-                  return Center(child: Text("No Data"));
-                }, (r) {
-                  print("Right");
-                }),
-            () => Center(child: CircularProgressIndicator()));
-      });
-    }
+
+    final ProfileController profileController =
+        Get.put(getIt<ProfileController>());
+    profileController.optionFailOrSuccess.listen((option) {
+      option.match(
+          (t) => t.fold((l) {
+                print("Left");
+                return Center(child: Text("No Data"));
+              }, (r) {
+                print("Right");
+              }),
+          () => Center(child: CircularProgressIndicator()));
+    });
 
     return SafeArea(
       child: Padding(
@@ -49,8 +47,7 @@ class ProfilePage extends StatelessWidget {
                     children: <InlineSpan>[
                       TextSpan(text: " "),
                       TextSpan(
-                        text: profileController.profileData.value.name!
-                                .lastname!.capitalizeFirst ??
+                        text: profileController.profileData.value.name?.lastname ??
                             "Last",
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.bold),

@@ -61,11 +61,10 @@ class DetailProfile extends StatelessWidget {
               ),
               Expanded(child: SizedBox()),
               Buttons(
-                
-                onPressed: () {
-                  Get.to(UpdateProfile(profileData: profileModel));
-              }, text: "EDIT"
-              )
+                  onPressed: () {
+                    Get.to(UpdateProfile(profileData: profileModel));
+                  },
+                  text: "EDIT")
             ],
           ),
         ));

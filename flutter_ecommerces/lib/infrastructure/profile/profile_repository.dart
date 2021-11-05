@@ -14,26 +14,37 @@ class ProfileRepository implements IProfileRepository {
   Future<Either<ProfileFailure, ProfileModel>> getProfile(String id) async {
     // TODO: implement getProfile
     try {
+      ProfileModel profileModel;
       var res = await iNetworkService.getHttp(path: UrlPath.getProfile + id);
-      // await Future.delayed(const Duration(seconds: 3));
+      await Future.delayed(const Duration(seconds: 1));
+      print(UrlPath.getProfile + id);
       print("Res value from getProfile");
       print(res);
       if (res != null) {
         Map<String, dynamic> json = res as Map<String, dynamic>;
         print("Get Profile success");
         print(json);
+        print("Profile Model");
+        print(ProfileModel.fromJson(json));
         return right(ProfileModel.fromJson(json));
       }
       print("Profile failed");
       return left(ProfileFailure.invalidUser());
     } catch (e) {
       return left(ProfileFailure.failed());
+    } finally {
+      return left(ProfileFailure.failed());
     }
   }
 
   @override
-  Future<Either<ProfileFailure, Unit>> updateProfile(String id, String firstName,
-      String lastName, String username, String email, String password) async {
+  Future<Either<ProfileFailure, Unit>> updateProfile(
+      String id,
+      String firstName,
+      String lastName,
+      String username,
+      String email,
+      String password) async {
     // TODO: implement updateProfile
     try {
       final Map<String, dynamic> req = {
@@ -46,7 +57,7 @@ class ProfileRepository implements IProfileRepository {
         },
       };
       var res = await iNetworkService.putHttp(
-          path: UrlPath.updateProfile+id, content: req);
+          path: UrlPath.updateProfile + id, content: req);
       print("Update profile repository");
       print(res);
       if (res != null) {

@@ -26,131 +26,134 @@ class UpdateProfile extends HookWidget {
         appBar: AppBars.appBars(title: "Update Profile"),
         resizeToAvoidBottomInset: false,
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            child : Column(
-            children: [
-              Container(
-                  child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              child: Column(
                 children: [
-                  Expanded(
-                    child: TextFormField(
-                      controller: firstName,
-                      keyboardType: TextInputType.text,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      decoration: InputDecoration(
-                          fillColor: Colors.grey.withOpacity(0.4),
-                          hintText: "First Name",
-                          border: InputBorder.none,
-                          prefixIcon: Icon(Icons.person)),
-                      onChanged: (value) =>
-                          profileController.onfirstNameChanged(value),
-                      validator: (_) => profileController.getFirstName.value
-                          .fold(
-                              (l) => l.maybeMap(
-                                  empty: (_) => "Nama Pertama Anda kosong",
-                                  invalidName: (_) =>
-                                      "Nama Pertama Anda tidak valid",
-                                  orElse: () => null),
-                              (r) => null),
-                    ),
+                  Container(
+                      child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: firstName,
+                          keyboardType: TextInputType.text,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          decoration: InputDecoration(
+                              fillColor: Colors.grey.withOpacity(0.4),
+                              hintText: "First Name",
+                              border: InputBorder.none,
+                              prefixIcon: Icon(Icons.person)),
+                          onChanged: (value) =>
+                              profileController.onfirstNameChanged(value),
+                          validator: (_) => profileController.getFirstName.value
+                              .fold(
+                                  (l) => l.maybeMap(
+                                      empty: (_) => "Nama Pertama Anda kosong",
+                                      invalidName: (_) =>
+                                          "Nama Pertama Anda tidak valid",
+                                      orElse: () => null),
+                                  (r) => null),
+                        ),
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          controller: lastName,
+                          keyboardType: TextInputType.text,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          decoration: InputDecoration(
+                              fillColor: Colors.grey.withOpacity(0.4),
+                              hintText: "Last Name",
+                              border: InputBorder.none,
+                              prefixIcon: Icon(Icons.person)),
+                          onChanged: (value) =>
+                              profileController.onlastNameChanged(value),
+                          validator: (_) => profileController.getLastName.value
+                              .fold(
+                                  (l) => l.maybeMap(
+                                      empty: (_) => "Nama Akhir Anda kosong",
+                                      invalidName: (_) =>
+                                          "Nama Akhir Anda tidak valid",
+                                      orElse: () => null),
+                                  (r) => null),
+                        ),
+                      ),
+                    ],
+                  )),
+                  TextFormField(
+                    controller: username,
+                    keyboardType: TextInputType.text,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: InputDecoration(
+                        fillColor: Colors.grey.withOpacity(0.4),
+                        hintText: "Username",
+                        border: InputBorder.none,
+                        prefixIcon: Icon(Icons.person)),
+                    onChanged: (value) =>
+                        profileController.onusernameChanged(value),
+                    validator: (_) => profileController.getUsername.value.fold(
+                        (l) => l.maybeMap(
+                            empty: (_) => "Username Anda kosong",
+                            invalidUsername: (_) => "Username Anda tidak valid",
+                            orElse: () => null),
+                        (r) => null),
+                  ),
+                  TextFormField(
+                    controller: email,
+                    keyboardType: TextInputType.emailAddress,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: InputDecoration(
+                        fillColor: Colors.grey.withOpacity(0.4),
+                        hintText: "Email",
+                        border: InputBorder.none,
+                        prefixIcon: Icon(Icons.mail)),
+                    onChanged: (value) =>
+                        profileController.onemailChanged(value),
+                    validator: (_) => profileController.getEmail.value.fold(
+                        (l) => l.maybeMap(
+                            empty: (_) => "Email Anda kosong",
+                            invalidEmail: (_) => "Email Anda tidak valid",
+                            orElse: () => null),
+                        (r) => null),
+                  ),
+                  TextFormField(
+                    controller: password,
+                    keyboardType: TextInputType.visiblePassword,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    decoration: InputDecoration(
+                        fillColor: Colors.grey.withOpacity(0.4),
+                        hintText: "Password",
+                        border: InputBorder.none,
+                        prefixIcon: Icon(Icons.lock)),
+                    onChanged: (value) =>
+                        profileController.onpasswordChanged(value),
+                    validator: (_) => profileController.getPassword.value.fold(
+                        (l) => l.maybeMap(
+                            empty: (_) => "Password Anda kosong",
+                            invalidPassword: (_) => "Password Anda tidak valid",
+                            orElse: () => null),
+                        (r) => null),
                   ),
                   Expanded(
-                    child: TextFormField(
-                      controller: lastName,
-                      keyboardType: TextInputType.text,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      decoration: InputDecoration(
-                          fillColor: Colors.grey.withOpacity(0.4),
-                          hintText: "Last Name",
-                          border: InputBorder.none,
-                          prefixIcon: Icon(Icons.person)),
-                      onChanged: (value) =>
-                          profileController.onlastNameChanged(value),
-                      validator: (_) => profileController.getLastName.value
-                          .fold(
-                              (l) => l.maybeMap(
-                                  empty: (_) => "Nama Akhir Anda kosong",
-                                  invalidName: (_) =>
-                                      "Nama Akhir Anda tidak valid",
-                                  orElse: () => null),
-                              (r) => null),
-                    ),
+                    child: SizedBox(),
                   ),
+                  Buttons(
+                      onPressed: profileController.isValidated.value
+                          ? () {
+                              profileController.updateUser("7");
+                              print("Update User");
+                              // if (profileController.isValidated.value == true) {
+                              //   profileController.updateUser();
+                              //   print("Update User");
+                              // }
+                            }
+                          : null,
+                      text: "UPDATE")
                 ],
-              )),
-              TextFormField(
-                controller: username,
-                keyboardType: TextInputType.text,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: InputDecoration(
-                    fillColor: Colors.grey.withOpacity(0.4),
-                    hintText: "Username",
-                    border: InputBorder.none,
-                    prefixIcon: Icon(Icons.person)),
-                onChanged: (value) =>
-                    profileController.onusernameChanged(value),
-                validator: (_) => profileController.getUsername.value.fold(
-                    (l) => l.maybeMap(
-                        empty: (_) => "Username Anda kosong",
-                        invalidUsername: (_) => "Username Anda tidak valid",
-                        orElse: () => null),
-                    (r) => null),
               ),
-              TextFormField(
-                controller: email,
-                keyboardType: TextInputType.emailAddress,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: InputDecoration(
-                    fillColor: Colors.grey.withOpacity(0.4),
-                    hintText: "Email",
-                    border: InputBorder.none,
-                    prefixIcon: Icon(Icons.mail)),
-                onChanged: (value) => profileController.onemailChanged(value),
-                validator: (_) => profileController.getEmail.value.fold(
-                    (l) => l.maybeMap(
-                        empty: (_) => "Email Anda kosong",
-                        invalidEmail: (_) => "Email Anda tidak valid",
-                        orElse: () => null),
-                    (r) => null),
-              ),
-              TextFormField(
-                controller: password,
-                keyboardType: TextInputType.visiblePassword,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                decoration: InputDecoration(
-                    fillColor: Colors.grey.withOpacity(0.4),
-                    hintText: "Password",
-                    border: InputBorder.none,
-                    prefixIcon: Icon(Icons.lock)),
-                onChanged: (value) =>
-                    profileController.onpasswordChanged(value),
-                validator: (_) => profileController.getPassword.value.fold(
-                    (l) => l.maybeMap(
-                        empty: (_) => "Password Anda kosong",
-                        invalidPassword: (_) => "Password Anda tidak valid",
-                        orElse: () => null),
-                    (r) => null),
-              ),
-              Expanded(
-                child: SizedBox(),
-              ),
-              Buttons(
-                  onPressed: profileController.isValidated.value ? () {
-                    profileController.updateUser("7");
-                    print("Update User");
-                    // if (profileController.isValidated.value == true) {
-                    //   profileController.updateUser();
-                    //   print("Update User");
-                    // }
-                  } : null,
-                  text: "UPDATE")
-            ],
-          ),)
-        ));
+            )));
   }
 }

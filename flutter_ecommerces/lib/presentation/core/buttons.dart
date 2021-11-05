@@ -15,7 +15,9 @@ class Buttons extends StatelessWidget {
     // TODO: implement build
     return RawMaterialButton(
         fillColor: onPressed != null ? Colours.buttonColor : Colors.grey,
-        splashColor: onPressed != null ? Colours.buttonColor.withOpacity(0.4) : Colors.grey.withOpacity(0.4) ,
+        splashColor: onPressed != null
+            ? Colours.buttonColor.withOpacity(0.4)
+            : Colors.grey.withOpacity(0.4),
         onPressed: onPressed,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         child: Padding(

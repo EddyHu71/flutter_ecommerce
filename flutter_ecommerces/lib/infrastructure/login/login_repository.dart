@@ -2,6 +2,7 @@ import 'package:flutter_ecommerces/domain/core/i_network_service.dart';
 import 'package:flutter_ecommerces/domain/core/i_storage.dart';
 import 'package:flutter_ecommerces/domain/login/i_login_repository.dart';
 import 'package:flutter_ecommerces/infrastructure/core/link_connect.dart';
+import 'package:flutter_ecommerces/infrastructure/core/storage_token.dart';
 import 'package:flutter_ecommerces/infrastructure/login/login_response/login_model.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:flutter_ecommerces/domain/login/login_failure.dart';
@@ -27,7 +28,7 @@ class LoginRepository implements ILoginRepository {
       if (response != null) {
         print("Login success");
         Map<String, dynamic> json = response as Map<String, dynamic>;
-        // storageData.writeToken(json['token']);
+        storageData.writeToken(json['token']);
         String token = json['token'];
         iStorage.putString(key: "token", value: token);
         // final tokens = iStorage.getString(key: "token");

@@ -85,7 +85,6 @@ class ProfileController extends GetxController {
     print(optionFailOrSuccess.value);
     print("Res value");
     print(res);
-
     isLoading.value = false;
     res.match((l) {
       print("Left Value");

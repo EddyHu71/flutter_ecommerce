@@ -6,8 +6,8 @@ part 'name.g.dart';
 @freezed
 class Name with _$Name {
   factory Name({
-    @JsonKey(name: "firstname") String? firstname,
-    @JsonKey(name: "lastname") String? lastname,
+    required String? firstname,
+    required String? lastname,
   }) = _Name;
 
   factory Name.fromJson(Map<String, dynamic> json) => _$NameFromJson(json);

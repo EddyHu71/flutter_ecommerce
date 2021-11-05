@@ -5,27 +5,40 @@ import 'package:injectable/injectable.dart';
 
 @injectable
 class ViewController extends GetxController {
-
   final IViewRepository iViewRepository;
   ViewController(this.iViewRepository);
-  List<ViewModel> listView = <ViewModel>[].obs;
+  RxList<ViewModel> listView = <ViewModel>[].obs;
   Rx<bool> isLoading = false.obs;
 
-  List<ViewModel> get listData => listView;
+  @override
+  void onInit() {
+    fetchApi();
+    print("Init state fetch API");
+    super.onInit();
+  }
 
   Future<void> fetchApi() async {
-    isLoading.value = true;
     print("Fetch API executed");
     var res = await iViewRepository.getData();
-    isLoading.value = false;
     print("Res value");
     print(res);
     res.match((l) {
       print("Left Fetch API");
-    
-    }, (r) {
+      print(l);
+    }, (data) {
       print("Right Fetch API");
-      
+      List<Map<String, dynamic>> json = data as List<Map<String, dynamic>>;
+      for (var item in json) {
+        listView.add(ViewModel.fromJson(item));
+      }
+      // listView.value = data;
+      print("Panjang List View ${listView.length}");
+      print(listView);
+      print("Data Right");
+      print(data);
+      // for (var item in data) {
+      //   listView.add(item);
+      // }
     });
   }
 }

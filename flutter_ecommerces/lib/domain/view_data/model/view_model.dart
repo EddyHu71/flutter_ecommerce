@@ -7,11 +7,11 @@ part 'view_model.g.dart';
 class ViewModel with _$ViewModel {
   factory ViewModel({
     int? id,
-    String? title,
-    String? price,
-    String? category,
-    String? description,
-    String? image,
+    @JsonKey(name: "title" ) String? title,
+    @JsonKey(name: "price" ) String? price,
+    @JsonKey(name: "category" ) String? category,
+    @JsonKey(name: "description" ) String? description,
+    @JsonKey(name: "image" ) String? image,
   }) = _ViewModel;
 
   factory ViewModel.fromJson(Map<String, dynamic> json) =>
