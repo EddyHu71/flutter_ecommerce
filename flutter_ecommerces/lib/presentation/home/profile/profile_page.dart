@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerces/application/logout/logout_controller.dart';
 import 'package:flutter_ecommerces/application/profile/profile_controller.dart';
 import 'package:flutter_ecommerces/injection.dart';
 import 'package:flutter_ecommerces/presentation/core/alerts.dart';
@@ -13,6 +14,7 @@ class ProfilePage extends StatelessWidget {
 
     final ProfileController profileController =
         Get.put(getIt<ProfileController>());
+    final LogoutController logoutController = Get.put(getIt<LogoutController>());
     profileController.optionFailOrSuccess.listen((option) {
       option.match(
           (t) => t.fold((l) {
@@ -30,8 +32,8 @@ class ProfilePage extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                width: 225,
-                height: 225,
+                width: Get.width * 0.35,
+                height: Get.width * 0.35,
                 child: Image.asset(Utils.PROFILE_PHOTO, fit: BoxFit.fitWidth),
               ),
               Padding(
@@ -85,7 +87,9 @@ class ProfilePage extends StatelessWidget {
                           title: "Logout",
                           subTitle: "Apakah kamu ingin keluar?",
                           withCancel: true,
-                          onPressed: () {},
+                          onPressed: () {
+                            logoutController.onLogout();
+                          },
                           onCancelPressed: () {
                             Get.back();
                           },

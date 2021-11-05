@@ -23,11 +23,11 @@ class _$ViewModelTearOff {
 
   _ViewModel call(
       {int? id,
-      String? title,
-      String? price,
-      String? category,
-      String? description,
-      String? image}) {
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "price") String? price,
+      @JsonKey(name: "category") String? category,
+      @JsonKey(name: "description") String? description,
+      @JsonKey(name: "image") String? image}) {
     return _ViewModel(
       id: id,
       title: title,
@@ -49,10 +49,15 @@ const $ViewModel = _$ViewModelTearOff();
 /// @nodoc
 mixin _$ViewModel {
   int? get id => throw _privateConstructorUsedError;
+  @JsonKey(name: "title")
   String? get title => throw _privateConstructorUsedError;
+  @JsonKey(name: "price")
   String? get price => throw _privateConstructorUsedError;
+  @JsonKey(name: "category")
   String? get category => throw _privateConstructorUsedError;
+  @JsonKey(name: "description")
   String? get description => throw _privateConstructorUsedError;
+  @JsonKey(name: "image")
   String? get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -67,11 +72,11 @@ abstract class $ViewModelCopyWith<$Res> {
       _$ViewModelCopyWithImpl<$Res>;
   $Res call(
       {int? id,
-      String? title,
-      String? price,
-      String? category,
-      String? description,
-      String? image});
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "price") String? price,
+      @JsonKey(name: "category") String? category,
+      @JsonKey(name: "description") String? description,
+      @JsonKey(name: "image") String? image});
 }
 
 /// @nodoc
@@ -128,11 +133,11 @@ abstract class _$ViewModelCopyWith<$Res> implements $ViewModelCopyWith<$Res> {
   @override
   $Res call(
       {int? id,
-      String? title,
-      String? price,
-      String? category,
-      String? description,
-      String? image});
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "price") String? price,
+      @JsonKey(name: "category") String? category,
+      @JsonKey(name: "description") String? description,
+      @JsonKey(name: "image") String? image});
 }
 
 /// @nodoc
@@ -187,11 +192,11 @@ class __$ViewModelCopyWithImpl<$Res> extends _$ViewModelCopyWithImpl<$Res>
 class _$_ViewModel implements _ViewModel {
   _$_ViewModel(
       {this.id,
-      this.title,
-      this.price,
-      this.category,
-      this.description,
-      this.image});
+      @JsonKey(name: "title") this.title,
+      @JsonKey(name: "price") this.price,
+      @JsonKey(name: "category") this.category,
+      @JsonKey(name: "description") this.description,
+      @JsonKey(name: "image") this.image});
 
   factory _$_ViewModel.fromJson(Map<String, dynamic> json) =>
       _$$_ViewModelFromJson(json);
@@ -199,14 +204,19 @@ class _$_ViewModel implements _ViewModel {
   @override
   final int? id;
   @override
+  @JsonKey(name: "title")
   final String? title;
   @override
+  @JsonKey(name: "price")
   final String? price;
   @override
+  @JsonKey(name: "category")
   final String? category;
   @override
+  @JsonKey(name: "description")
   final String? description;
   @override
+  @JsonKey(name: "image")
   final String? image;
 
   @override
@@ -247,11 +257,11 @@ class _$_ViewModel implements _ViewModel {
 abstract class _ViewModel implements ViewModel {
   factory _ViewModel(
       {int? id,
-      String? title,
-      String? price,
-      String? category,
-      String? description,
-      String? image}) = _$_ViewModel;
+      @JsonKey(name: "title") String? title,
+      @JsonKey(name: "price") String? price,
+      @JsonKey(name: "category") String? category,
+      @JsonKey(name: "description") String? description,
+      @JsonKey(name: "image") String? image}) = _$_ViewModel;
 
   factory _ViewModel.fromJson(Map<String, dynamic> json) =
       _$_ViewModel.fromJson;
@@ -259,14 +269,19 @@ abstract class _ViewModel implements ViewModel {
   @override
   int? get id;
   @override
+  @JsonKey(name: "title")
   String? get title;
   @override
+  @JsonKey(name: "price")
   String? get price;
   @override
+  @JsonKey(name: "category")
   String? get category;
   @override
+  @JsonKey(name: "description")
   String? get description;
   @override
+  @JsonKey(name: "image")
   String? get image;
   @override
   @JsonKey(ignore: true)

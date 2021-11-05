@@ -14,10 +14,9 @@ class ProfileRepository implements IProfileRepository {
   Future<Either<ProfileFailure, ProfileModel>> getProfile(String id) async {
     // TODO: implement getProfile
     try {
-      ProfileModel profileModel;
+      final ProfileModel profileModel;
       var res = await iNetworkService.getHttp(path: UrlPath.getProfile + id);
       await Future.delayed(const Duration(seconds: 1));
-      print(UrlPath.getProfile + id);
       print("Res value from getProfile");
       print(res);
       if (res != null) {
