@@ -14,7 +14,6 @@ class ProfileRepository implements IProfileRepository {
   Future<Either<ProfileFailure, ProfileModel>> getProfile(String id) async {
     // TODO: implement getProfile
     try {
-      final ProfileModel profileModel;
       var res = await iNetworkService.getHttp(path: UrlPath.getProfile + id);
       await Future.delayed(const Duration(seconds: 1));
       print("Res value from getProfile");
@@ -26,14 +25,15 @@ class ProfileRepository implements IProfileRepository {
         print("Profile Model");
         print(ProfileModel.fromJson(json));
         return right(ProfileModel.fromJson(json));
+      } else {
+          print("Profile failed");
+          return left(ProfileFailure.invalidUser());
       }
-      print("Profile failed");
-      return left(ProfileFailure.invalidUser());
     } catch (e) {
-      return left(ProfileFailure.failed());
-    } finally {
+      print("Catch executed");
       return left(ProfileFailure.failed());
     }
+    
   }
 
   @override

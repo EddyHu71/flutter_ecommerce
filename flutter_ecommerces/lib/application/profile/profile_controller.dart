@@ -92,7 +92,7 @@ class ProfileController extends GetxController {
       // return left(ProfileFailure.failed());
     }, (r) {
       print("Right value");
-      print(r.name);
+      print(r);
       profileData.value = r;
       print("Profile Data");
       print(profileData.value);

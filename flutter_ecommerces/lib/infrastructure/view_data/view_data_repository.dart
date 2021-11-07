@@ -14,7 +14,7 @@ class ViewRepository implements IViewRepository {
   final INetworkService iNetworkService;
   ViewRepository(this.iNetworkService);
   @override
-  Future<Either<ViewFailure, List<ViewModel>>> getData() async {
+    Future<Either<ViewFailure, List<ViewModel>>> getData() async {
     // TODO: implement getData
     try {
       List<ViewModel> listViewModel = [];
@@ -23,13 +23,24 @@ class ViewRepository implements IViewRepository {
       print(res);
       if (res != null) {
         print("Res isn't null");
-        List<Map<String, dynamic>> json = res as List<Map<String, dynamic>>;
+        // berhenti sampai sini saja, pak.
+        //List<Map<String, dynamic>> json = res as List<Map<String, dynamic>>;
+        List jsons = jsonDecode(res);
+        print("Jsons value");
+        print(jsons);
+        List<Map<String, dynamic>> json = jsons as List<Map<String, dynamic>>;
+        print("Convert to map json");
+        print(json);
+        // List<SignUpResponse> list = parsedList.map((val) =>  SignUpResponse.fromJson(val)).toList();
         json.map((e) {
+          print("JSON looped");
           listViewModel.add(ViewModel.fromJson(e));
         });
         return right(listViewModel);
+      } else {
+        print("View No Data");
+        return left(ViewFailure.noData());
       }
-      return left(ViewFailure.noData());
     } catch (e) {
       print("View Data Failure");
       return left(ViewFailure.failed());

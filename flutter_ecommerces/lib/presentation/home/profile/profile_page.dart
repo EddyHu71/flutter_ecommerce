@@ -29,7 +29,7 @@ class ProfilePage extends StatelessWidget {
     return SafeArea(
       child: Padding(
           padding: EdgeInsets.all(16),
-          child: Column(
+          child: profileController.isLoading.value == true ? Center(child : CircularProgressIndicator()) : Column(
             children: [
               Container(
                 width: Get.width * 0.35,
