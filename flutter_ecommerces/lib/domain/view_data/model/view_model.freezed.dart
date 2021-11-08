@@ -22,9 +22,9 @@ class _$ViewModelTearOff {
   const _$ViewModelTearOff();
 
   _ViewModel call(
-      {int? id,
+      {String? id,
       String? title,
-      double? price,
+      String? price,
       String? description,
       String? category,
       String? image,
@@ -50,9 +50,9 @@ const $ViewModel = _$ViewModelTearOff();
 
 /// @nodoc
 mixin _$ViewModel {
-  int? get id => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  double? get price => throw _privateConstructorUsedError;
+  String? get price => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get category => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
@@ -69,9 +69,9 @@ abstract class $ViewModelCopyWith<$Res> {
   factory $ViewModelCopyWith(ViewModel value, $Res Function(ViewModel) then) =
       _$ViewModelCopyWithImpl<$Res>;
   $Res call(
-      {int? id,
+      {String? id,
       String? title,
-      double? price,
+      String? price,
       String? description,
       String? category,
       String? image,
@@ -102,7 +102,7 @@ class _$ViewModelCopyWithImpl<$Res> implements $ViewModelCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ class _$ViewModelCopyWithImpl<$Res> implements $ViewModelCopyWith<$Res> {
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -149,9 +149,9 @@ abstract class _$ViewModelCopyWith<$Res> implements $ViewModelCopyWith<$Res> {
       __$ViewModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int? id,
+      {String? id,
       String? title,
-      double? price,
+      String? price,
       String? description,
       String? category,
       String? image,
@@ -184,7 +184,7 @@ class __$ViewModelCopyWithImpl<$Res> extends _$ViewModelCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -192,7 +192,7 @@ class __$ViewModelCopyWithImpl<$Res> extends _$ViewModelCopyWithImpl<$Res>
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as double?,
+              as String?,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -229,11 +229,11 @@ class _$_ViewModel implements _ViewModel {
       _$$_ViewModelFromJson(json);
 
   @override
-  final int? id;
+  final String? id;
   @override
   final String? title;
   @override
-  final double? price;
+  final String? price;
   @override
   final String? description;
   @override
@@ -281,9 +281,9 @@ class _$_ViewModel implements _ViewModel {
 
 abstract class _ViewModel implements ViewModel {
   factory _ViewModel(
-      {int? id,
+      {String? id,
       String? title,
-      double? price,
+      String? price,
       String? description,
       String? category,
       String? image,
@@ -293,11 +293,11 @@ abstract class _ViewModel implements ViewModel {
       _$_ViewModel.fromJson;
 
   @override
-  int? get id;
+  String? get id;
   @override
   String? get title;
   @override
-  double? get price;
+  String? get price;
   @override
   String? get description;
   @override

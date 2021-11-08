@@ -7,9 +7,9 @@ part of 'view_model.dart';
 // **************************************************************************
 
 _$_ViewModel _$$_ViewModelFromJson(Map<String, dynamic> json) => _$_ViewModel(
-      id: json['id'] as int?,
+      id: json['id'] as String?,
       title: json['title'] as String?,
-      price: (json['price'] as num?)?.toDouble(),
+      price: json['price'] as String?,
       description: json['description'] as String?,
       category: json['category'] as String?,
       image: json['image'] as String?,

@@ -8,9 +8,9 @@ part 'view_model.g.dart';
 @freezed
 class ViewModel with _$ViewModel {
   factory ViewModel({
-    int? id,
+    String? id,
     String? title,
-    double? price,
+    String? price,
     String? description,
     String? category,
     String? image,
