@@ -1,8 +1,8 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Urls {
-  // static final String baseUrl = dotenv.get('BASE_URL');
-  static final String baseUrl = "https://fakestoreapi.com";
+  static final String baseUrl = dotenv.get('BASE_URL');
+  //static final String baseUrl = "https://fakestoreapi.com";
 }
 
 class UrlPath {

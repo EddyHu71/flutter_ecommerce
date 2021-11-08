@@ -1,40 +1,32 @@
+import 'package:code_id_flutter/code_id_flutter.dart';
 import 'package:flutter_ecommerces/domain/auth/auth_failure.dart';
 import 'package:flutter_ecommerces/domain/auth/i_auth_repository.dart';
-import 'package:flutter_ecommerces/domain/core/i_storage.dart';
-import 'package:flutter_ecommerces/infrastructure/core/storage_token.dart';
+import 'package:code_id_flutter/code_services/storage/storage.dart';
+import 'package:flutter_ecommerces/infrastructure/core/utils.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: IAuthRepository)
 class AuthRepository implements IAuthRepository {
-  final IStorage iStorage;
-  AuthRepository(this.iStorage);
   @override
-  Future<Either<AuthFailure, Unit>> authToken(String token) async {
+  Future<Either<AuthFailure, Unit>> authToken() async {
     // TODO: implement authToken
     try {
-      // var tokens = iStorage.getString(key: "token");
-      var tokens = await storageData.returnToken();
+      await Storage.openBox(StorageName.box_name);
+      print("Auth success");
       print("Token in iStorage");
+      var tokens = await Storage.getData(key: "token");
       print(tokens);
-      print("Panjang token ${tokens.length}");
-      // print("Token from parameter");
-      // print(token);
       await Future.delayed(const Duration(seconds: 3));
-      if (tokens == null || token == null) {
+      if (tokens == null) {
         print("Token null");
-        // iStorage.deleteString(key: "token");
-        storageData.deleteAll();
         return left(AuthFailure.invalidToken());
       } else {
-        if (token == tokens && tokens != null) {
-          print("Auth success");
-          return right(unit);
-        }
+        return right(unit);
       }
-      print("Auth failed");
-      return left(AuthFailure.failed());
     } catch (e) {
+      print("Auth failed");
+      print(e);
       // iStorage.deleteString(key : "token");
       return left(AuthFailure.failed());
     }

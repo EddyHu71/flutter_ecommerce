@@ -1,7 +1,5 @@
-import 'package:flutter_ecommerces/domain/core/i_storage.dart';
 import 'package:flutter_ecommerces/domain/login/i_login_repository.dart';
 import 'package:flutter_ecommerces/domain/login/login_objects.dart';
-import 'package:flutter_ecommerces/infrastructure/core/storage_token.dart';
 import 'package:flutter_ecommerces/presentation/routers/routers.dart';
 import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
@@ -9,8 +7,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class LoginController extends GetxController {
   final ILoginRepository iLoginRepository;
-  final IStorage iStorage;
-  LoginController(this.iLoginRepository, this.iStorage);
+  LoginController(this.iLoginRepository);
 
   Rx<Username> username = Username('').obs;
   Rx<Password> password = Password('').obs;
@@ -52,7 +49,6 @@ class LoginController extends GetxController {
       );
     }, (r) {
       print("Right");
-      storageData.writeToken(r.token);
       Get.offNamedUntil(Routers.home, (route) => false);
     });
   }

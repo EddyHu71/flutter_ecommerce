@@ -1,7 +1,7 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-String base = dotenv.get('BOX_NAME');
-enum StorageConstants { base, articles, user, security, cache }
+String boxName = dotenv.get("BOX_NAME");
+enum StorageConstants {base, articles, user, security, cache }
 
 abstract class IStorage {
   Future openBox(

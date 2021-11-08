@@ -1,7 +1,6 @@
+import 'package:code_id_flutter/code_services/storage/storage.dart';
 import 'package:flutter_ecommerces/domain/auth/auth_objects.dart';
 import 'package:flutter_ecommerces/domain/auth/i_auth_repository.dart';
-import 'package:flutter_ecommerces/domain/core/i_storage.dart';
-import 'package:flutter_ecommerces/infrastructure/core/storage_token.dart';
 import 'package:flutter_ecommerces/presentation/routers/routers.dart';
 import 'package:get/get.dart';
 import 'package:injectable/injectable.dart';
@@ -9,8 +8,7 @@ import 'package:injectable/injectable.dart';
 @injectable
 class AuthController extends GetxController {
   final IAuthRepository iAuthRepository;
-  final IStorage iStorage;
-  AuthController(this.iAuthRepository, this.iStorage);
+  AuthController(this.iAuthRepository);
   Rx<Token> token = Token('').obs;
 
   Rx<bool> isLoading = false.obs;
@@ -36,12 +34,7 @@ class AuthController extends GetxController {
 
   Future<void> authToken() async {
     isLoading.value = true;
-    print("Auth Token");
-    print(token.value.getOrCrash());
-    final tokens = await storageData.returnToken();
-    print("Returns authToken");
-    print(tokens);
-    var res = await iAuthRepository.authToken(tokens);
+    var res = await iAuthRepository.authToken();
     print(res);
     isLoading.value = false;
 

@@ -25,10 +25,17 @@ class ViewRepository implements IViewRepository {
         print("Res isn't null");
         // berhenti sampai sini saja, pak.
         //List<Map<String, dynamic>> json = res as List<Map<String, dynamic>>;
-        List<ViewModel> json = res as List<ViewModel>;
-        print("Convert to map json");
-        print(json);
-        listViewModel = json;
+        List<dynamic> jsons = res;
+        print("Map JSON");
+        print(jsons);
+        jsons.forEach((element) {
+          listViewModel.add(element);
+        });
+        // List<ViewModel> json = jsons as List<ViewModel>;
+        // listViewModel = json;
+        // print("Convert to map json");
+        // print(json);
+        // listViewModel = json.toList();
         return right(listViewModel);
       } else {
         print("View No Data");
