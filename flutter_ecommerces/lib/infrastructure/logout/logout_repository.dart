@@ -4,7 +4,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:flutter_ecommerces/domain/logout/logout_failure.dart';
 import 'package:injectable/injectable.dart';
 
-@LazySingleton(as : ILogoutRepository)
+@LazySingleton(as: ILogoutRepository)
 class LogoutRepository implements ILogoutRepository {
   @override
   Future<Either<LogoutFailure, Unit>> logout() async {
@@ -23,5 +23,4 @@ class LogoutRepository implements ILogoutRepository {
       return left(LogoutFailure.failed());
     }
   }
-
 }

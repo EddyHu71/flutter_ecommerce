@@ -26,14 +26,13 @@ class ProfileRepository implements IProfileRepository {
         print(ProfileModel.fromJson(json));
         return right(ProfileModel.fromJson(json));
       } else {
-          print("Profile failed");
-          return left(ProfileFailure.invalidUser());
+        print("Profile failed");
+        return left(ProfileFailure.invalidUser());
       }
     } catch (e) {
       print("Catch executed");
       return left(ProfileFailure.failed());
     }
-    
   }
 
   @override

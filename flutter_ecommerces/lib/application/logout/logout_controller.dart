@@ -11,7 +11,7 @@ class LogoutController extends GetxController {
   LogoutController(this.iLogoutRepository);
 
   Rx<bool> isLoading = false.obs;
-  
+
   Future<void> onLogout() async {
     isLoading.value = true;
     print("onLogout");
@@ -26,8 +26,7 @@ class LogoutController extends GetxController {
           Get.back();
         },
       );
-    }, 
-    (r) {
+    }, (r) {
       print("Right logout");
       Get.offNamedUntil(Routers.onboard, (route) => false);
     });

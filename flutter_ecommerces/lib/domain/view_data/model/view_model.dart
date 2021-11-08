@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'rating.dart';
+
 part 'view_model.freezed.dart';
 part 'view_model.g.dart';
 
@@ -7,11 +9,12 @@ part 'view_model.g.dart';
 class ViewModel with _$ViewModel {
   factory ViewModel({
     int? id,
-    @JsonKey(name: "title" ) String? title,
-    @JsonKey(name: "price" ) String? price,
-    @JsonKey(name: "category" ) String? category,
-    @JsonKey(name: "description" ) String? description,
-    @JsonKey(name: "image" ) String? image,
+    String? title,
+    double? price,
+    String? description,
+    String? category,
+    String? image,
+    Rating? rating,
   }) = _ViewModel;
 
   factory ViewModel.fromJson(Map<String, dynamic> json) =>

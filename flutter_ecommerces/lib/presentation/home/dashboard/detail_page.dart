@@ -5,9 +5,7 @@ import 'package:get/get.dart';
 
 class DetailPage extends StatelessWidget {
   final ViewModel viewModel;
-  DetailPage({Key? key, 
-    required this.viewModel
-  }) : super(key: key);
+  DetailPage({Key? key, required this.viewModel}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

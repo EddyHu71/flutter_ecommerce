@@ -23,18 +23,20 @@ class _$ViewModelTearOff {
 
   _ViewModel call(
       {int? id,
-      @JsonKey(name: "title") String? title,
-      @JsonKey(name: "price") String? price,
-      @JsonKey(name: "category") String? category,
-      @JsonKey(name: "description") String? description,
-      @JsonKey(name: "image") String? image}) {
+      String? title,
+      double? price,
+      String? description,
+      String? category,
+      String? image,
+      Rating? rating}) {
     return _ViewModel(
       id: id,
       title: title,
       price: price,
-      category: category,
       description: description,
+      category: category,
       image: image,
+      rating: rating,
     );
   }
 
@@ -49,16 +51,12 @@ const $ViewModel = _$ViewModelTearOff();
 /// @nodoc
 mixin _$ViewModel {
   int? get id => throw _privateConstructorUsedError;
-  @JsonKey(name: "title")
   String? get title => throw _privateConstructorUsedError;
-  @JsonKey(name: "price")
-  String? get price => throw _privateConstructorUsedError;
-  @JsonKey(name: "category")
-  String? get category => throw _privateConstructorUsedError;
-  @JsonKey(name: "description")
+  double? get price => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  @JsonKey(name: "image")
+  String? get category => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
+  Rating? get rating => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -72,11 +70,14 @@ abstract class $ViewModelCopyWith<$Res> {
       _$ViewModelCopyWithImpl<$Res>;
   $Res call(
       {int? id,
-      @JsonKey(name: "title") String? title,
-      @JsonKey(name: "price") String? price,
-      @JsonKey(name: "category") String? category,
-      @JsonKey(name: "description") String? description,
-      @JsonKey(name: "image") String? image});
+      String? title,
+      double? price,
+      String? description,
+      String? category,
+      String? image,
+      Rating? rating});
+
+  $RatingCopyWith<$Res>? get rating;
 }
 
 /// @nodoc
@@ -92,9 +93,10 @@ class _$ViewModelCopyWithImpl<$Res> implements $ViewModelCopyWith<$Res> {
     Object? id = freezed,
     Object? title = freezed,
     Object? price = freezed,
-    Object? category = freezed,
     Object? description = freezed,
+    Object? category = freezed,
     Object? image = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -108,20 +110,35 @@ class _$ViewModelCopyWithImpl<$Res> implements $ViewModelCopyWith<$Res> {
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
+              as double?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as Rating?,
     ));
+  }
+
+  @override
+  $RatingCopyWith<$Res>? get rating {
+    if (_value.rating == null) {
+      return null;
+    }
+
+    return $RatingCopyWith<$Res>(_value.rating!, (value) {
+      return _then(_value.copyWith(rating: value));
+    });
   }
 }
 
@@ -133,11 +150,15 @@ abstract class _$ViewModelCopyWith<$Res> implements $ViewModelCopyWith<$Res> {
   @override
   $Res call(
       {int? id,
-      @JsonKey(name: "title") String? title,
-      @JsonKey(name: "price") String? price,
-      @JsonKey(name: "category") String? category,
-      @JsonKey(name: "description") String? description,
-      @JsonKey(name: "image") String? image});
+      String? title,
+      double? price,
+      String? description,
+      String? category,
+      String? image,
+      Rating? rating});
+
+  @override
+  $RatingCopyWith<$Res>? get rating;
 }
 
 /// @nodoc
@@ -154,9 +175,10 @@ class __$ViewModelCopyWithImpl<$Res> extends _$ViewModelCopyWithImpl<$Res>
     Object? id = freezed,
     Object? title = freezed,
     Object? price = freezed,
-    Object? category = freezed,
     Object? description = freezed,
+    Object? category = freezed,
     Object? image = freezed,
+    Object? rating = freezed,
   }) {
     return _then(_ViewModel(
       id: id == freezed
@@ -170,19 +192,23 @@ class __$ViewModelCopyWithImpl<$Res> extends _$ViewModelCopyWithImpl<$Res>
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
+              as double?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String?,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
               as String?,
-      description: description == freezed
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String?,
       image: image == freezed
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as String?,
+      rating: rating == freezed
+          ? _value.rating
+          : rating // ignore: cast_nullable_to_non_nullable
+              as Rating?,
     ));
   }
 }
@@ -192,11 +218,12 @@ class __$ViewModelCopyWithImpl<$Res> extends _$ViewModelCopyWithImpl<$Res>
 class _$_ViewModel implements _ViewModel {
   _$_ViewModel(
       {this.id,
-      @JsonKey(name: "title") this.title,
-      @JsonKey(name: "price") this.price,
-      @JsonKey(name: "category") this.category,
-      @JsonKey(name: "description") this.description,
-      @JsonKey(name: "image") this.image});
+      this.title,
+      this.price,
+      this.description,
+      this.category,
+      this.image,
+      this.rating});
 
   factory _$_ViewModel.fromJson(Map<String, dynamic> json) =>
       _$$_ViewModelFromJson(json);
@@ -204,24 +231,21 @@ class _$_ViewModel implements _ViewModel {
   @override
   final int? id;
   @override
-  @JsonKey(name: "title")
   final String? title;
   @override
-  @JsonKey(name: "price")
-  final String? price;
+  final double? price;
   @override
-  @JsonKey(name: "category")
-  final String? category;
-  @override
-  @JsonKey(name: "description")
   final String? description;
   @override
-  @JsonKey(name: "image")
+  final String? category;
+  @override
   final String? image;
+  @override
+  final Rating? rating;
 
   @override
   String toString() {
-    return 'ViewModel(id: $id, title: $title, price: $price, category: $category, description: $description, image: $image)';
+    return 'ViewModel(id: $id, title: $title, price: $price, description: $description, category: $category, image: $image, rating: $rating)';
   }
 
   @override
@@ -232,16 +256,17 @@ class _$_ViewModel implements _ViewModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.price, price) || other.price == price) &&
-            (identical(other.category, category) ||
-                other.category == category) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.image, image) || other.image == image) &&
+            (identical(other.rating, rating) || other.rating == rating));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, price, category, description, image);
+  int get hashCode => Object.hash(
+      runtimeType, id, title, price, description, category, image, rating);
 
   @JsonKey(ignore: true)
   @override
@@ -257,11 +282,12 @@ class _$_ViewModel implements _ViewModel {
 abstract class _ViewModel implements ViewModel {
   factory _ViewModel(
       {int? id,
-      @JsonKey(name: "title") String? title,
-      @JsonKey(name: "price") String? price,
-      @JsonKey(name: "category") String? category,
-      @JsonKey(name: "description") String? description,
-      @JsonKey(name: "image") String? image}) = _$_ViewModel;
+      String? title,
+      double? price,
+      String? description,
+      String? category,
+      String? image,
+      Rating? rating}) = _$_ViewModel;
 
   factory _ViewModel.fromJson(Map<String, dynamic> json) =
       _$_ViewModel.fromJson;
@@ -269,20 +295,17 @@ abstract class _ViewModel implements ViewModel {
   @override
   int? get id;
   @override
-  @JsonKey(name: "title")
   String? get title;
   @override
-  @JsonKey(name: "price")
-  String? get price;
+  double? get price;
   @override
-  @JsonKey(name: "category")
-  String? get category;
-  @override
-  @JsonKey(name: "description")
   String? get description;
   @override
-  @JsonKey(name: "image")
+  String? get category;
+  @override
   String? get image;
+  @override
+  Rating? get rating;
   @override
   @JsonKey(ignore: true)
   _$ViewModelCopyWith<_ViewModel> get copyWith =>

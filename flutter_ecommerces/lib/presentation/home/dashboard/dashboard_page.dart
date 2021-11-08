@@ -72,7 +72,6 @@ class DashboardPage extends HookWidget {
                 height: 2,
               );
             },
-            itemCount: viewController.listView.length)
-            );
+            itemCount: viewController.listView.length));
   }
 }
