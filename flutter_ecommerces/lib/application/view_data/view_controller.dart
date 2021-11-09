@@ -8,7 +8,7 @@ class ViewController extends GetxController {
   final IViewRepository iViewRepository;
   ViewController(this.iViewRepository);
   Rx<bool> isLoading = false.obs;
-  List<ViewModel> listView = <ViewModel>[].obs;
+  RxList<ViewModel> listView = <ViewModel>[].obs;
 
   @override
   void onInit() {
@@ -30,7 +30,7 @@ class ViewController extends GetxController {
     }, (data) {
       print("Right Fetch API");
       print(data);
-      listView = data;
+      listView.value = data;
       print("Data");
       print("Panjang List View ${listView.length}");
       print(listView);

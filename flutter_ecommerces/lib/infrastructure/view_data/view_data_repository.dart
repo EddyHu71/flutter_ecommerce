@@ -17,18 +17,20 @@ class ViewRepository implements IViewRepository {
   Future<Either<ViewFailure, List<ViewModel>>> getData() async {
     // TODO: implement getData
     try {
-      List<ViewModel> listViewModel = [];
+      List<ViewModel> listViewModel = <ViewModel>[];
       var res = await iNetworkService.getHttp(path: UrlPath.viewData);
       print("Res in View Repository");
       print(res);
       if (res != null) {
         print("Res isn't null");
         // berhenti sampai sini saja, pak.
-        //List<Map<String, dynamic>> json = res as List<Map<String, dynamic>>;
-        List<ViewModel> json = res as List<ViewModel>;
-        print("Convert to map json");
-        print(json);
-        listViewModel = json;
+        List<dynamic> json = res as List<dynamic>;
+        // listViewModel = res;
+        listViewModel = json.map((e) {
+          return ViewModel.fromJson(e);
+        }).toList();
+        print("Map JSON");
+        print(listViewModel);
         return right(listViewModel);
       } else {
         print("View No Data");

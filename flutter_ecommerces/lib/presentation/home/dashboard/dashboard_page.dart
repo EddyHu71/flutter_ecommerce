@@ -21,7 +21,7 @@ class DashboardPage extends HookWidget {
             itemBuilder: (BuildContext context, int index) {
               return InkWell(
                   onTap: () {
-                    // Get.to(DetailPage());
+                    Get.to(DetailPage(viewModel: viewController.listView[index],));
                   },
                   child: Card(
                       elevation: 1,
@@ -35,30 +35,31 @@ class DashboardPage extends HookWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Container(
-                              decoration: BoxDecoration(
-                                  color: Colours.shimmerColor,
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(16.0),
-                                    topRight: Radius.circular(16.0),
-                                  )),
+                              child : Obx(() => Image.network(viewController.listView[index].image!)),
+                              // decoration: BoxDecoration(
+                              //     color: Colours.shimmerColor,
+                              //     borderRadius: BorderRadius.only(
+                              //       topLeft: Radius.circular(16.0),
+                              //       topRight: Radius.circular(16.0),
+                              //     )),
                               width: Get.width,
                               height: 225,
                             ),
                             Padding(
                               padding: const EdgeInsets.only(
                                   left: 12.0, top: 8.0, bottom: 8.0),
-                              child: Text(viewController.listView[index].title!,
+                              child: Obx(() => Text(viewController.listView[index].title!,
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
-                                      fontSize: 14.0)),
+                                      fontSize: 14.0))),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 12.0),
-                              child: Text(
+                              child: Obx(() => Text(
                                 viewController.listView[index].description!,
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
-                              ),
+                              )),
                             ),
                           ],
                         ),

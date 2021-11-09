@@ -30,9 +30,7 @@ class ProfilePage extends StatelessWidget {
     return SafeArea(
       child: Padding(
           padding: EdgeInsets.all(16),
-          child: profileController.isLoading.value == true
-              ? Center(child: CircularProgressIndicator())
-              : Column(
+          child: Column(
                   children: [
                     Container(
                       width: Get.width * 0.35,
@@ -45,7 +43,7 @@ class ProfilePage extends StatelessWidget {
                         top: 8.0,
                         // bottom: 8.0,
                       ),
-                      child: Text.rich(TextSpan(
+                      child: Obx(() => Text.rich(TextSpan(
                           text: profileController.profileData.value.name
                                   ?.firstname!.capitalizeFirst ??
                               "First",
@@ -54,13 +52,13 @@ class ProfilePage extends StatelessWidget {
                           children: <InlineSpan>[
                             TextSpan(text: " "),
                             TextSpan(
-                              text: profileController
-                                      .profileData.value.name?.lastname ??
-                                  "Last",
-                              style: TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold),
-                            )
-                          ])),
+                                text: profileController
+                                        .profileData.value.name?.lastname ??
+                                    "Last",
+                                style: TextStyle(
+                                    fontSize: 20, fontWeight: FontWeight.bold),
+                              )
+                          ]))),
                     ),
                     Text(
                         profileController.profileData.value.username ??

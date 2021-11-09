@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_ecommerces/domain/core/i_storage.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -13,7 +12,6 @@ class Storage implements IStorage {
   final HiveInterface hive;
 
   Storage(this.hive);
-
   @override
   Future openBox(
     StorageConstants boxName,
