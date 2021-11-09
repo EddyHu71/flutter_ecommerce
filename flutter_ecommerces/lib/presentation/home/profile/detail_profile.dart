@@ -27,7 +27,7 @@ class DetailProfile extends StatelessWidget {
                 child: Container(
                   width: 225,
                   height: 225,
-                  child: Image.asset(Utils.PROFILE_PHOTO, fit: BoxFit.fitWidth),
+                  child: Image.asset(Utils.PROFILE_PHOTO),
                 ),
               ),
               Padding(
